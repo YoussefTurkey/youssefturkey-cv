@@ -13,7 +13,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaSquareGithub } from "react-icons/fa6";
 import { FaBehanceSquare } from "react-icons/fa";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import Title from "../title/page";
+import Title from "../title/Title";
 
 import {skills} from '@/../public/database/data'
 
