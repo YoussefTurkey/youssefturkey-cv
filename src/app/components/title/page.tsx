@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { ReactNode } from 'react';
 
-const Title = ({children}) => {
+interface TitleProps {
+  children: ReactNode;
+}
+
+const Title: React.FC<TitleProps> = ({ children }) => {
   return (
     <h2 className="font-bold tracking-[10] uppercase mb-4 text-[20px]">{children}</h2>
   )
