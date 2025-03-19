@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 
 interface TitleProps {
   children: ReactNode;
@@ -6,8 +6,10 @@ interface TitleProps {
 
 const Title: React.FC<TitleProps> = ({ children }) => {
   return (
-    <h2 className="font-bold tracking-[10] uppercase mb-4 text-[20px]">{children}</h2>
-  )
-}
+    <h2 className="font-bold tracking-widest uppercase mb-4 text-[20px]">
+      {children}
+    </h2>
+  );
+};
 
-export default Title
+export default Title;
