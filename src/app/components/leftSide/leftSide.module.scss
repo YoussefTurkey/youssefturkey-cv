@@ -1,0 +1,17 @@
+.dots{
+    background-color: #707070;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: relative;
+    &::after{
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 90px;
+        background-color: #707070;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
