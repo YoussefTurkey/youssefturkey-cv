@@ -14,10 +14,52 @@ import { FaSquareGithub } from "react-icons/fa6";
 import { FaBehanceSquare } from "react-icons/fa";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import Title from "../title/Title";
-
+// importing data
 import {skills} from '@/../public/database/data'
+// importing Tab component
+import Tabs from '../tabs/Tab'
 
 const LeftSide = () => {
+
+  const tabData = [
+    {
+      label: skills.frontend.title,
+      content: (
+        <ul className="list-disc pl-5">
+          {skills.frontend.tools.map((tool, index) => (
+            <li key={index} className="text-[#ccc] py-1">
+              {tool}
+            </li>
+          ))}
+        </ul>
+      ),
+    },
+    {
+      label: skills.backend.title,
+      content: (
+        <ul className="list-disc pl-5">
+          {skills.backend.tools.map((tool, index) => (
+            <li key={index} className="text-[#ccc] py-1">
+              {tool}
+            </li>
+          ))}
+        </ul>
+      ),
+    },
+    {
+      label: skills.design.title,
+      content: (
+        <ul className="list-disc pl-5">
+          {skills.design.tools.map((tool, index) => (
+            <li key={index} className="text-[#ccc] py-1">
+              {tool}
+            </li>
+          ))}
+        </ul>
+      ),
+    },
+  ];
+  
   return (
     <section className="container mx-auto w-[425px] px-10 py-5 bg-[#181616] flex flex-col justify-center items-start rounded-tl-xl rounded-bl-xl">
       {/* --- Profile --- */}
@@ -101,24 +143,8 @@ const LeftSide = () => {
 
         {/* --- Technical Skills --- */}
       <div className="mb-10">
-
         <Title>Technical Skills</Title>
-        {
-          Object.values(skills).map((skill: { title: string; tools: string[] }, index) => {
-            return(
-              <div className="my-10" key={index}>
-                <div className="ml-8">
-                  <h4 className="font-bold tracking-[3] pb-2">{skill.title}</h4>
-                  <ul className="list-disc">
-                    {skill.tools.map((tool, toolIndex) => (
-                      <li className="text-[#ccc] py-1 " key={toolIndex}>{tool}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            )
-          })
-        }
+        <Tabs tabs={tabData} />
       </div>
     </section>
   );

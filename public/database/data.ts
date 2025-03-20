@@ -15,7 +15,7 @@ interface ISkills {
 
 export const skills: ISkills = {
   frontend: {
-    title: "Frontend Track",
+    title: "Frontend",
     tools: [
       "HTML5 & CSS3 & JS & ES6",
       "Bootstrap & TailwindCSS & jQuery",
@@ -26,7 +26,7 @@ export const skills: ISkills = {
     ],
   },
   backend: {
-    title: "Backend & CMS Track",
+    title: "Backend & CMS",
     tools: [
       "PHP & Python & C & C++",
       "Strapi & WordPress",
@@ -34,7 +34,8 @@ export const skills: ISkills = {
     ],
   },
   design: {
-    title: "Design Track",
+    title: "Design",
     tools: ["Photoshop", "Illustrator", "CorelDraw", "Figma"],
   },
 };
+
