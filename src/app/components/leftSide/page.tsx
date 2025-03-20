@@ -12,7 +12,6 @@ import { IoCall } from "react-icons/io5";
 import { FaLinkedin } from "react-icons/fa";
 import { FaSquareGithub } from "react-icons/fa6";
 import { FaBehanceSquare } from "react-icons/fa";
-import { FaExternalLinkAlt } from "react-icons/fa";
 import Title from "../title/Title";
 // importing data
 import {skills} from '@/../public/database/data'
@@ -116,7 +115,7 @@ const LeftSide = () => {
           <Link href={'https://www.linkedin.com/in/youturkey11/'} target="_blank" className="flex items-center"><FaLinkedin /> <span className="pl-2">/in/youturkey11</span></Link>
           <Link href={'https://github.com/YoussefTurkey'} target="_blank" className="flex items-center"><FaSquareGithub /> <span className="pl-2">/YoussefTurkey</span></Link>
           <Link href={'https://www.behance.net/YouTurkey11'} target="_blank" className="flex items-center"><FaBehanceSquare /> <span className="pl-2">/YouTurkey11</span></Link>
-          <Link href={'https://qabilah.com/profile/youturkey11/professional-profile'} target="_blank" className="flex items-center"><FaExternalLinkAlt /> <span className="pl-2">/youturkey11</span></Link>
+          <Link href={'https://qabilah.com/profile/youturkey11/professional-profile'} target="_blank" className="flex items-center"><Image src={'/images/qabilah.png'} width={15} height={15} alt="qabilah" loading='lazy' /> <span className="pl-2">/qabilah/youturkey11</span></Link>
         </div>
       </div>
 
