@@ -67,14 +67,19 @@ const LeftSide = () => {
         {/* --- Profile --- */}
         {/* --- Image & Name & Job Title --- */}
         <div>
-          <Image
-            src={"/images/Youssef-Turkey.jpg"}
-            width={600}
-            height={600}
-            alt="youssef-turkey"
-            loading="lazy"
-            className="rounded-full w-50 mx-auto shadow-2xl"
-          />
+          <div className={styles.relat}>
+            <div className={styles.puls}></div>
+            <div className="group w-[200px] h-[200px] rounded-full overflow-hidden mx-auto hover:shadow-2xl border-2 border-[#181616] hover:border-[#02ec63] transition-all duration-300">
+              <Image
+                src={"/images/Youssef-Turkey.jpg"}
+                width={600}
+                height={600}
+                alt="youssef-turkey"
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"
+              />
+            </div>
+          </div>
 
           <div className="text-center">
             <h1 className="font-bold text-[26px] text-[#fcfcfc] py-2 tracking-[4]">

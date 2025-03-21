@@ -1,17 +1,43 @@
-.dots{
-    background-color: #707070;
+.relat {
+  position: relative;
+  .puls {
     width: 15px;
     height: 15px;
+    background-color: #02ec63;
+    position: absolute;
+    bottom: 15px;
+    right: 100px;
     border-radius: 50%;
-    position: relative;
-    &::after{
-        content: '';
-        position: absolute;
-        width: 2px;
-        height: 90px;
-        background-color: #707070;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-    }
+    z-index: 10;
+    animation: pulse-glow 2s infinite;
+  }
+}
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 5px rgba(2, 236, 99, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(2, 236, 99, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(2, 236, 99, 0.5);
+  }
+}
+
+.dots {
+  background-color: #707070;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 90px;
+    background-color: #707070;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
