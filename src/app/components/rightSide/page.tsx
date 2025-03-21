@@ -18,7 +18,7 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 
 const RightSide = () => {
   return (
-    <section className="container mx-auto w-[975px] px-10 py-5 bg-[#212121] flex flex-col justify-start items-start rounded-tr-xl rounded-br-xl">
+    <section className="container mx-auto w-[975px] px-10 py-5 border-t-2 border-t-[#212121] lg:border-t-none bg-[#181616] lg:bg-[#212121] flex flex-col justify-start items-start lg:rounded-tr-xl lg:rounded-br-xl">
       {/* --- Experience --- */}
       <div className="mb-10">
         <Title>Experience</Title>
@@ -80,8 +80,8 @@ const RightSide = () => {
         {Object.values(projects).map((proj, i) => {
           return (
             <div key={i}>
-              <div className="mb-5 flex justify-between items-start gap-10">
-                <div className="w-[80%]">
+              <div className="mb-10 lg:mb-5 flex flex-col lg:flex-row justify-between items-start gap-3 lg:gap-10">
+                <div className="lg:w-[80%]">
                   <h4>{proj.title}: <span className="text-[#ccc]">{proj.info}</span></h4>
                   <h5 className="mt-2">Key responsibility:</h5>
                   <ul className="list-disc pl-5">
@@ -93,7 +93,7 @@ const RightSide = () => {
                   </ul>
                 </div>
 
-                <div className="w-[20%]">
+                <div className="lg:w-[20%]">
                     <Link href={proj.link} target="_blank" className="text-[#ccc] hover:text-[#fff] transition-all flex items-center"><FaExternalLinkAlt /> <span className="pl-2">See Project</span></Link>
                 </div>
               </div>
@@ -106,7 +106,7 @@ const RightSide = () => {
       <div className="mb-10">
         <Title>Languages</Title>
 
-        <div className="grid grid-rows-1 grid-cols-3 gap-10 justify-items-center">
+        <div className="grid grid-rows-3 grid-cols-1 md:grid-rows-2 md:grid-cols-2 lg:grid-rows-1 lg:grid-cols-3 lg:gap-10 lg:justify-items-center">
           {Object.values(languages).map((lang, i) => {
             return (
               <div key={i}>

@@ -14,7 +14,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div className="w-fit lg:w-full max-w-2xl lg:mx-auto">
       {/* --- Tabs Header --- */}
       <div className="flex bg-[#212121] rounded-full py-1 px-[15px]">
         {tabs.map((tab, index) => (

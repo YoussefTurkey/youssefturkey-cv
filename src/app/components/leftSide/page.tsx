@@ -62,8 +62,8 @@ const LeftSide = () => {
   ];
 
   return (
-    <section className="container mx-auto w-[425px] px-10 py-5 bg-[#181616] flex flex-col justify-start items-start rounded-tl-xl rounded-bl-xl relative">
-      <div className="sticky top-5">
+    <section className="container mx-auto w-[100%] lg:w-[425px] px-20 lg:px-10 py-5 bg-[#181616] flex flex-col md:justify-start items-start lg:rounded-tl-xl lg:rounded-bl-xl relative">
+      <div className="lg:sticky lg:top-5">
         {/* --- Profile --- */}
         {/* --- Image & Name & Job Title --- */}
         <div>

@@ -23,6 +23,13 @@
     box-shadow: 0 0 5px rgba(2, 236, 99, 0.5);
   }
 }
+@media screen and (max-width: 768px) {
+  .puls{
+    width: 20px;
+    height: 20px;
+    right: 230px !important;
+  }
+}
 
 .dots {
   background-color: #707070;
