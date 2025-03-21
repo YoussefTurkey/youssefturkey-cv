@@ -50,7 +50,7 @@ interface ICertificate {
     title: string;
     info: string;
   };
-  webFundementals: {
+  Tanfezy: {
     title: string;
     info: string;
   };
@@ -176,9 +176,9 @@ export const certificates: ICertificate = {
     title: "AWCO Training center (2021)",
     info: "successful passing in a summer training for students of the Faculty of Science (Sidi Bishr Branch).",
   },
-  webFundementals: {
-    title: "Complete HTML5 & CSS3 & JavaScript Course (2020)",
-    info: "successful completing the online courses from Udemy.",
+  Tanfezy: {
+    title: "Leadership Training Course presented by Tanfezy Initiative",
+    info: "Attended training workshops over a month, totaling 32 training hours, as part of the Executive Capabilities Program an initiative by Senator Alaa Mostafa.",
   },
 };
 
