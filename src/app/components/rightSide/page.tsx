@@ -54,10 +54,10 @@ const RightSide = () => {
       </div>
 
       {/* --- References --- */}
-      <div className="mb-10 w-[60%]">
+      <div className="mb-10 lg:w-[60%]">
         <Title>References</Title>
 
-        <div className="flex justify-between items-start">
+        <div className="flex flex-col lg:flex-row justify-between items-start">
           {Object.values(references).map((ref, i) => {
             return (
               <div key={i}>
