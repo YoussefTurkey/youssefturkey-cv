@@ -27,7 +27,12 @@
   .puls{
     width: 20px;
     height: 20px;
-    right: 230px !important;
+    right: 270px !important;
+  }
+}
+@media screen and (max-width: 425px) {
+  .puls{
+    right: 100px !important;
   }
 }
 

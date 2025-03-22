@@ -18,7 +18,7 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 
 const RightSide = () => {
   return (
-    <section className="container mx-auto w-[975px] px-10 py-5 border-t-2 border-t-[#212121] lg:border-t-none bg-[#181616] lg:bg-[#212121] flex flex-col justify-start items-start lg:rounded-tr-xl lg:rounded-br-xl">
+    <section className="container mx-auto w-[100%] lg:w-[975px] px-10 py-5 border-t-2 border-t-[#212121] lg:border-t-none bg-[#181616] lg:bg-[#212121] flex flex-col justify-start items-start lg:rounded-tr-xl lg:rounded-br-xl">
       {/* --- Experience --- */}
       <div className="mb-10">
         <Title>Experience</Title>

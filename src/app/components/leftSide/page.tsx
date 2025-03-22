@@ -62,7 +62,7 @@ const LeftSide = () => {
   ];
 
   return (
-    <section className="container mx-auto w-[100%] lg:w-[425px] px-20 lg:px-10 py-5 bg-[#181616] flex flex-col md:justify-start items-start lg:rounded-tl-xl lg:rounded-bl-xl relative">
+    <section className="container mx-auto w-[100%] lg:w-[425px] px-10 py-5 bg-[#181616] flex flex-col md:justify-start items-start lg:rounded-tl-xl lg:rounded-bl-xl relative">
       <div className="lg:sticky lg:top-5">
         {/* --- Profile --- */}
         {/* --- Image & Name & Job Title --- */}
@@ -185,7 +185,7 @@ const LeftSide = () => {
         {/* --- Education --- */}
         <div className="mb-10">
           <Title>Education</Title>
-          <div className="faculty">
+          <div>
             <div className={styles.dots}></div>
             <div className="ml-8 mt-[-15px]">
               <h4 className="font-bold tracking-[3]">Bachelor of Science</h4>
