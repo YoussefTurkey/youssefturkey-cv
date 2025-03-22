@@ -94,7 +94,7 @@ const RightSide = () => {
                 </div>
 
                 <div className="lg:w-[20%]">
-                    <Link href={proj.link} target="_blank" className="text-[#ccc] hover:text-[#fff] transition-all flex items-center"><FaExternalLinkAlt /> <span className="pl-2">See Project</span></Link>
+                    <Link href={proj.link} target="_blank" className="text-[#ccc] hover:text-[#fff] transition-all flex items-center"><FaExternalLinkAlt /> <span className="pl-2 underline underline-offset-8 lg:no-underline decoration-[#02ec63]">See Project</span></Link>
                 </div>
               </div>
             </div>
