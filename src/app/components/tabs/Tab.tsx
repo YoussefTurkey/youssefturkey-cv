@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React, { useState } from "react";
 
 interface Tab {
@@ -22,8 +22,8 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
             key={index}
             className={`py-2 px-3 font-semibold transition-all duration-300 cursor-pointer text-[12px] lg:text-[16px] ${
               activeTab === index
-                ? "text--[#ccc] rounded-full py-1 px-[15px]"
-                : "text-gray-500 hover:text--[#fff]"
+                ? "text-[#02ec63] rounded-full py-1 px-[15px]"
+                : "text-gray-400 hover:text-[#02ec63]"
             }`}
             onClick={() => setActiveTab(index)}
           >
@@ -33,9 +33,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
       </div>
 
       {/* Tabs Content */}
-      <div className="p-4">
-        {tabs[activeTab].content}
-      </div>
+      <div className="p-4">{tabs[activeTab].content}</div>
     </div>
   );
 };
