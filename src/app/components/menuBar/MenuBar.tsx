@@ -16,9 +16,42 @@ import { VscReferences } from "react-icons/vsc";
 import { LuLayoutList } from "react-icons/lu";
 import { FaLanguage } from "react-icons/fa";
 
+const sections = [
+  { id: "bio", icon: <FaUserCircle />, label: "Bio" },
+  { id: "summary", icon: <FaInfoCircle />, label: "Summary" },
+  { id: "education", icon: <FaBookReader />, label: "Education" },
+  { id: "skills", icon: <RiFileList3Fill />, label: "Skills" },
+  { id: "experience", icon: <MdWork />, label: "Experiences" },
+  { id: "certificates", icon: <FaAward />, label: "Certificates" },
+  { id: "reference", icon: <VscReferences />, label: "References" },
+  { id: "projects", icon: <LuLayoutList />, label: "Projects" },
+  { id: "lang", icon: <FaLanguage />, label: "Languages" },
+];
+
 const MenuBar = () => {
   const [menu, setMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null); // Reference for the menu
+  const [activeSection, setActiveSection] = useState("");
+
+  // Function to detect the active section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      let currentSection = "";
+      sections.forEach((section) => {
+        const sectionElement = document.getElementById(section.id);
+        if (sectionElement) {
+          const rect = sectionElement.getBoundingClientRect();
+          if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
+            currentSection = section.id;
+          }
+        }
+      });
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -59,96 +92,19 @@ const MenuBar = () => {
         }`}
         ref={menuRef}
       >
-        <Link
-          href={"#bio"}
-          onClick={() => setMenu(false)}
-          className="flex flex-col justify-center items-center text-[#ccc] active:text-[#fff] focus:text-[#fff]"
-        >
-          <span className="p-2">
-            <FaUserCircle />
-          </span>{" "}
-          <span className="text-center">Bio</span>
-        </Link>
-        <Link
-          href={"#summary"}
-          onClick={() => setMenu(false)}
-          className="flex flex-col justify-center items-center text-[#ccc] active:text-[#fff] focus:text-[#fff]"
-        >
-          <span className="p-2">
-            <FaInfoCircle />
-          </span>{" "}
-          <span className="text-center">Summary</span>
-        </Link>
-        <Link
-          href={"#education"}
-          onClick={() => setMenu(false)}
-          className="flex flex-col justify-center items-center text-[#ccc] active:text-[#fff] focus:text-[#fff]"
-        >
-          <span className="p-2">
-            <FaBookReader />
-          </span>{" "}
-          <span className="text-center">Education</span>
-        </Link>
-        <Link
-          href={"#skills"}
-          onClick={() => setMenu(false)}
-          className="flex flex-col justify-center items-center text-[#ccc] active:text-[#fff] focus:text-[#fff]"
-        >
-          <span className="p-2">
-            <RiFileList3Fill />
-          </span>{" "}
-          <span className="text-center">Skills</span>
-        </Link>
-        <Link
-          href={"#experience"}
-          onClick={() => setMenu(false)}
-          className="flex flex-col justify-center items-center text-[#ccc] active:text-[#fff] focus:text-[#fff]"
-        >
-          <span className="p-2">
-            <MdWork />
-          </span>{" "}
-          <span className="text-center">Experiences</span>
-        </Link>
-        <Link
-          href={"#certificates"}
-          onClick={() => setMenu(false)}
-          className="flex flex-col justify-center items-center text-[#ccc] active:text-[#fff] focus:text-[#fff]"
-        >
-          <span className="p-2">
-            <FaAward />
-          </span>{" "}
-          <span className="text-center">Certificates</span>
-        </Link>
-        <Link
-          href={"#reference"}
-          onClick={() => setMenu(false)}
-          className="flex flex-col justify-center items-center text-[#ccc] active:text-[#fff] focus:text-[#fff]"
-        >
-          <span className="p-2">
-            <VscReferences />
-          </span>{" "}
-          <span className="text-center">References</span>
-        </Link>
-        <Link
-          href={"#projects"}
-          onClick={() => setMenu(false)}
-          className="flex flex-col justify-center items-center text-[#ccc] active:text-[#fff] focus:text-[#fff]"
-        >
-          <span className="p-2">
-            <LuLayoutList />
-          </span>{" "}
-          <span className="text-center">Projects</span>
-        </Link>
-        <Link
-          href={"#lang"}
-          onClick={() => setMenu(false)}
-          className="flex flex-col justify-center items-center text-[#ccc] active:text-[#fff] focus:text-[#fff]"
-        >
-          <span className="p-2">
-            <FaLanguage />
-          </span>{" "}
-          <span className="text-center">Languages</span>
-        </Link>
+        {sections.map(({ id, icon, label }) => (
+          <Link
+            key={id}
+            href={`#${id}`}
+            onClick={() => setMenu(false)}
+            className={`flex flex-col justify-center items-center ${
+              activeSection === id ? "text-[#02ec63]" : "text-[#ccc]"
+            } hover:text-[#02ec63] transition-all duration-200`}
+          >
+            <span className="p-2">{icon}</span>
+            <span className="text-center">{label}</span>
+          </Link>
+        ))}
       </div>
     </section>
   );
