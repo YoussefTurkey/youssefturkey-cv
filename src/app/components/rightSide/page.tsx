@@ -20,7 +20,7 @@ const RightSide = () => {
   return (
     <section className="container mx-auto w-[100%] lg:w-[975px] px-10 py-5 border-t-2 border-t-[#212121] lg:border-t-none bg-[#181616] lg:bg-[#212121] flex flex-col justify-start items-start lg:rounded-tr-xl lg:rounded-br-xl">
       {/* --- Experience --- */}
-      <div className="mb-10">
+      <div className="mb-10" id="experience">
         <Title>Experience</Title>
 
         {Object.values(experience).map((exp, i) => {
@@ -38,7 +38,7 @@ const RightSide = () => {
       </div>
 
       {/* --- Certificates --- */}
-      <div className="mb-10">
+      <div className="mb-10" id="certificates">
         <Title>Certificates</Title>
 
         {Object.values(certificates).map((cert, i) => {
@@ -54,7 +54,7 @@ const RightSide = () => {
       </div>
 
       {/* --- References --- */}
-      <div className="mb-10 lg:w-[60%]">
+      <div className="mb-10 lg:w-[60%]" id="reference">
         <Title>References</Title>
 
         <div className="flex flex-col lg:flex-row justify-between items-start">
@@ -74,7 +74,7 @@ const RightSide = () => {
       </div>
 
       {/* --- Latest Project --- */}
-      <div className="mb-10">
+      <div className="mb-10" id="projects">
         <Title>Latest Project</Title>
 
         {Object.values(projects).map((proj, i) => {
@@ -103,7 +103,7 @@ const RightSide = () => {
       </div>
 
       {/* --- Languages --- */}
-      <div className="mb-10">
+      <div className="mb-10" id="lang">
         <Title>Languages</Title>
 
         <div className="grid grid-rows-3 grid-cols-1 md:grid-rows-2 md:grid-cols-2 lg:grid-rows-1 lg:grid-cols-3 lg:gap-10 lg:justify-items-center">

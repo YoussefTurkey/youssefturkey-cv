@@ -66,7 +66,7 @@ const LeftSide = () => {
       <div className="lg:sticky lg:top-5">
         {/* --- Profile --- */}
         {/* --- Image & Name & Job Title --- */}
-        <div>
+        <div id="bio">
           <div className={styles.relat}>
             <div className={styles.puls}></div>
             <div className="group w-[200px] h-[200px] rounded-full overflow-hidden mx-auto hover:shadow-2xl border-2 border-[#181616] hover:border-[#02ec63] transition-all duration-300">
@@ -166,7 +166,7 @@ const LeftSide = () => {
         </div>
 
         {/* --- Summary --- */}
-        <div className="mb-10">
+        <div className="mb-10" id="summary">
           <Title>Summary</Title>
           <p className="mb-1 leading-[1.8]">
             I am a{" "}
@@ -183,7 +183,7 @@ const LeftSide = () => {
         </div>
 
         {/* --- Education --- */}
-        <div className="mb-10">
+        <div className="mb-10" id="education">
           <Title>Education</Title>
           <div>
             <div className={styles.dots}></div>
@@ -197,7 +197,7 @@ const LeftSide = () => {
         </div>
 
         {/* --- Technical Skills --- */}
-        <div className="mb-10">
+        <div className="mb-10" id="skills">
           <Title>Technical Skills</Title>
           <Tabs tabs={tabData} />
         </div>
