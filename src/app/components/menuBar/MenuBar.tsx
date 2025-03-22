@@ -1,6 +1,6 @@
 "use client";
 // importing React.js Component
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 // importing Next.js Component
 import Image from "next/image";
 import Link from "next/link";
@@ -18,6 +18,24 @@ import { FaLanguage } from "react-icons/fa";
 
 const MenuBar = () => {
   const [menu, setMenu] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null); // Reference for the menu
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setMenu(false);
+      }
+    };
+
+    if (menu) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menu]);
 
   return (
     <section className="block lg:hidden w-full container mx-auto">
@@ -36,9 +54,10 @@ const MenuBar = () => {
       </div>
 
       <div
-        className={`grid grid-cols-3 grid-rows-3 gap-x-10 gap-y-5 p-5 border-t-1 border-[#ccc] fixed bottom-12 bg-[#2b2b2b] ${
+        className={`w-full grid grid-cols-3 grid-rows-3 gap-x-10 gap-y-5 p-5 border-t-1 border-[#ccc] fixed bottom-12 bg-[#2b2b2b] ${
           menu ? "block" : "hidden"
         }`}
+        ref={menuRef}
       >
         <Link
           href={"#bio"}
