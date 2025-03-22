@@ -160,7 +160,7 @@ const LeftSide = () => {
                 alt="qabilah"
                 loading="lazy"
               />{" "}
-              <span className="pl-2">/qabilah/youturkey11</span>
+              <span className="pl-2">/youturkey11</span>
             </Link>
           </div>
         </div>

@@ -20,7 +20,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
         {tabs.map((tab, index) => (
           <button
             key={index}
-            className={`py-2 px-3 font-semibold transition-all duration-300 cursor-pointer ${
+            className={`py-2 px-3 font-semibold transition-all duration-300 cursor-pointer text-[12px] lg:text-[16px] ${
               activeTab === index
                 ? "text--[#ccc] rounded-full py-1 px-[15px]"
                 : "text-gray-500 hover:text--[#fff]"
