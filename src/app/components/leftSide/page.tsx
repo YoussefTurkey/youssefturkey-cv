@@ -2,6 +2,7 @@
 // import next components
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 // importing components
 import dynamic from "next/dynamic";
 // import style
@@ -20,6 +21,8 @@ import { IoCall } from "react-icons/io5";
 import { FaLinkedin } from "react-icons/fa";
 import { FaSquareGithub } from "react-icons/fa6";
 import { FaBehanceSquare } from "react-icons/fa";
+// importing popups component
+import Popup from "../popup/Popup";
 
 const LeftSide = () => {
   const tabData = [
@@ -61,15 +64,20 @@ const LeftSide = () => {
     },
   ];
 
+  const [showPopup, setShowPopup] = useState(false);
+
   return (
     <section className="container mx-auto w-[100%] lg:w-[425px] px-10 py-5 bg-[#181616] flex flex-col md:justify-start items-start lg:rounded-tl-xl lg:rounded-bl-xl relative">
       <div className="lg:sticky lg:top-5">
         {/* --- Profile --- */}
-        {/* --- Image & Name & Job Title --- */}
+        {/* --- Image & Name & Job Title & Popup(Modal) --- */}
         <div id="bio">
           <div className={styles.relat}>
             <div className={styles.puls}></div>
-            <div className="group w-[200px] h-[200px] rounded-full overflow-hidden mx-auto hover:shadow-2xl border-2 border-[#181616] hover:border-[#02ec63] transition-all duration-300">
+            <div
+              className="group w-[200px] h-[200px] rounded-full overflow-hidden mx-auto hover:shadow-2xl border-2 border-[#181616] hover:border-[#02ec63] transition-all duration-300"
+              onClick={() => setShowPopup(true)}
+            >
               <Image
                 src={"/images/Youssef-Turkey.jpg"}
                 width={600}
@@ -79,6 +87,70 @@ const LeftSide = () => {
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"
               />
             </div>
+
+            <Popup isOpen={showPopup} onClose={() => setShowPopup(false)}>
+              <div className="flex items-center justify-center">
+                <Image
+                  src={"/images/Youssef-Turkey.jpg"}
+                  width={600}
+                  height={600}
+                  alt="youssef-turkey"
+                  loading="lazy"
+                  className="w-30 h-30 rounded-full"
+                />
+                <h3 className="py-2 pl-5 text-2xl">
+                  {`Hello, I'm`}
+                  <br />
+                  <span className="underline decoration-[#02ec63] font-bold text-3xl">
+                    Youssef El-Turkey
+                  </span>
+                  .
+                </h3>
+              </div>
+              <div className="flex flex-col justify-start pt-5">
+                <p>
+                  {`I'm a frontend developer helping businesses and individuals improve
+                    their websites using tools like TypeScript, SCSS, TailwindCSS,
+                    Strapi, WordPress, Elementor, and many more that you can find in the
+                    Technical Skills section of my CV.`}
+                </p>
+                <p className="py-2">
+                  I also have experience in graphic design, where I assist
+                  companies in creating their visual identity using tools like
+                  Photoshop, Illustrator, and CorelDraw.
+                </p>
+                <div className="py-2">
+                  <h4>Feel free to get in touch with me via:</h4>
+                  <div className="grid grid-rows-3 grid-cols-1 md:grid-rows-2 md:grid-cols-2">
+                    <button className="flex items-center pt-3">
+                      <IoLogoWhatsapp />
+                      <Link
+                        href={"https://wa.me/01273451052"}
+                        target="_blank"
+                        className="pl-2 underline decoration-[#02ec63]"
+                      >
+                        +01273451052
+                      </Link>
+                    </button>
+                    <button className="flex items-center pt-3">
+                      <IoCall />
+                      <span className="pl-2 underline decoration-[#02ec63]">
+                        +01154102459
+                      </span>
+                    </button>
+                    <button className="flex items-center pt-3">
+                      <FaEnvelope />
+                      <Link
+                        href={"mailto:you.turkey11@gmail.com"}
+                        className="pl-2 underline decoration-[#02ec63]"
+                      >
+                        you.turkey11@gmail.com
+                      </Link>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </Popup>
           </div>
 
           <div className="text-center">
@@ -86,8 +158,8 @@ const LeftSide = () => {
               Youssef Turkey
             </h1>
             <p>
-              Full-Stack WordPress Developer | Front-End Developer (React.js |
-              Next.js | Typescript | Strapi) | Branding & Visual Identity
+              Front-End Developer (React.js | Next.js | Typescript | Strapi) |
+              Full-Stack WordPress Developer | Branding & Visual Identity
               Designer
             </p>
           </div>

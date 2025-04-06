@@ -25,7 +25,7 @@ const RightSide = () => {
 
         {Object.values(experience).map((exp, i) => {
           return (
-            <div className="faculty mb-3" key={i}>
+            <div className="mb-3" key={i}>
               <div className={styles.dots}></div>
               <div className="ml-8 mt-[-15px]">
                 <h4 className="font-bold tracking-[3]">{exp.jobTitle}</h4>
