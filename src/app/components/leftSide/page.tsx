@@ -14,15 +14,17 @@ const Tabs = dynamic(() => import("../tabs/Tab"));
 // importing data
 import { skills } from "@/../public/database/data";
 // importing React-Icons
-import { TiLocation } from "react-icons/ti";
 import { FaEnvelope } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
-import { IoCall } from "react-icons/io5";
-import { FaLinkedin } from "react-icons/fa";
-import { FaSquareGithub } from "react-icons/fa6";
-import { FaBehanceSquare } from "react-icons/fa";
 // importing popups component
 import Popup from "../popup/Popup";
+// importing data
+import { persona } from "@/../public/database/data";
+import { contact } from "@/../public/database/data";
+import { social } from "@/../public/database/data";
+import { summary } from "@/../public/database/data";
+import { education } from "@/../public/database/data";
+import { popup } from "@/../public/database/data";
 
 const LeftSide = () => {
   const tabData = [
@@ -79,7 +81,7 @@ const LeftSide = () => {
               onClick={() => setShowPopup(true)}
             >
               <Image
-                src={"/images/Youssef-Turkey.jpg"}
+                src={persona.image}
                 width={600}
                 height={600}
                 alt="youssef-turkey"
@@ -87,152 +89,131 @@ const LeftSide = () => {
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"
               />
             </div>
-
-            <Popup isOpen={showPopup} onClose={() => setShowPopup(false)}>
-              <div className="flex items-center justify-center">
-                <Image
-                  src={"/images/Youssef-Turkey.jpg"}
-                  width={600}
-                  height={600}
-                  alt="youssef-turkey"
-                  loading="lazy"
-                  className="w-30 h-30 rounded-full"
-                />
-                <h3 className="py-2 pl-5 text-2xl">
-                  {`Hello, I'm`}
-                  <br />
-                  <span className="underline decoration-[#02ec63] font-bold text-3xl">
-                    Youssef El-Turkey
-                  </span>
-                  .
-                </h3>
-              </div>
-              <div className="flex flex-col justify-start pt-5">
-                <p>
-                  {`I'm a frontend developer helping businesses and individuals improve
-                    their websites using tools like TypeScript, SCSS, TailwindCSS,
-                    Strapi, WordPress, Elementor, and many more that you can find in the
-                    Technical Skills section of my CV.`}
-                </p>
-                <p className="py-2">
-                  I also have experience in graphic design, where I assist
-                  companies in creating their visual identity using tools like
-                  Photoshop, Illustrator, and CorelDraw.
-                </p>
-                <div className="py-2">
-                  <h4>Feel free to get in touch with me via:</h4>
-                  <div className="grid grid-rows-3 grid-cols-1 md:grid-rows-2 md:grid-cols-2">
-                    <button className="flex items-center pt-3">
-                      <IoLogoWhatsapp />
-                      <Link
-                        href={"https://wa.me/01273451052"}
-                        target="_blank"
-                        className="pl-2 underline decoration-[#02ec63]"
-                      >
-                        +01273451052
-                      </Link>
-                    </button>
-                    <button className="flex items-center pt-3">
-                      <IoCall />
-                      <span className="pl-2 underline decoration-[#02ec63]">
-                        +01154102459
-                      </span>
-                    </button>
-                    <button className="flex items-center pt-3">
-                      <FaEnvelope />
-                      <Link
-                        href={"mailto:you.turkey11@gmail.com"}
-                        className="pl-2 underline decoration-[#02ec63]"
-                      >
-                        you.turkey11@gmail.com
-                      </Link>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </Popup>
           </div>
 
           <div className="text-center">
             <h1 className="font-bold text-[26px] text-[#fcfcfc] py-2 tracking-[4]">
-              Youssef Turkey
+              {persona.fullName}
             </h1>
-            <p>
-              Front-End Developer (React.js | Next.js | Typescript | Strapi) |
-              Full-Stack WordPress Developer | Branding & Visual Identity
-              Designer
-            </p>
+            <p>{persona.jobTitle}</p>
           </div>
         </div>
+
+        <Popup isOpen={showPopup} onClose={() => setShowPopup(false)}>
+          <div className="flex items-center justify-start">
+            <Image
+              src={popup.image}
+              width={600}
+              height={600}
+              alt="youssef-turkey"
+              loading="lazy"
+              className="w-30 h-30 rounded-full border-2 border-[#02ec63]"
+            />
+            <h3 className="py-2 pl-5 text-2xl">
+              {`Hello, I'm`}
+              <br />
+              <span className="underline decoration-[#02ec63] font-bold text-3xl">
+                {popup.name}
+              </span>
+              .
+            </h3>
+          </div>
+          <div className="flex flex-col justify-start pt-5">
+            <p className="text-lg">{popup.info[0]}</p>
+            <p className="py-2 text-lg">{popup.info[1]}</p>
+            <div className="pt-2">
+              <h4>Feel free to get in touch with me via:</h4>
+              <div className="flex justify-start items-center gap-5">
+                <button className="flex items-center justify-center mt-3 rounded-lg cursor-pointer px-5 py-2 ring-2 ring-[#02ec63] transition-all">
+                  <IoLogoWhatsapp className="text-[#02ec63] text-xl" />
+                  <Link
+                    href={popup.whatsapp}
+                    target="_blank"
+                    className="pl-2 text-[#02ec63] font-bold"
+                  >
+                    Text me
+                  </Link>
+                </button>
+                <button className="flex items-center justify-center mt-3 ring-2 ring-[#02ec63] rounded-lg cursor-pointer px-5 py-2">
+                  <FaEnvelope className="text-[#02ec63] text-xl" />
+                  <Link
+                    href={popup.email}
+                    className="pl-2 text-[#02ec63] font-bold"
+                  >
+                    Email me
+                  </Link>
+                </button>
+              </div>
+            </div>
+          </div>
+        </Popup>
 
         {/* --- Address & Email & Whatsapp & Call ---  */}
         <div className="my-10">
           <p className="flex items-center py-1">
-            <TiLocation />
-            <span className="pl-2">ElTeraa-street, Alexandria - Egypt</span>
+            <contact.address.icon />
+            <span className="pl-2">{contact.address.info}</span>
           </p>
           <p className="flex items-center py-1">
-            <FaEnvelope />
-            <Link href={"mailto:you.turkey11@gmail.com"} className="pl-2">
-              you.turkey11@gmail.com
+            <contact.email.icon />
+            <Link href={`mailto:${contact.email.link}`} className="pl-2 underline underline-offset-8 decoration-[#02ec63]">
+              {contact.email.info}
             </Link>
           </p>
-          <p className="flex items-center py-1">
-            <IoLogoWhatsapp />
+          <p className="flex items-center py-1 underline underline-offset-8 decoration-[#02ec63]">
+            <contact.whatsapp.icon />
             <Link
-              href={"https://wa.me/01273451052"}
+              href={contact.whatsapp.link ? contact.whatsapp.link : ""}
               target="_blank"
               className="pl-2"
             >
-              01273451052
+              {contact.whatsapp.info}
             </Link>
           </p>
           <p className="flex items-center">
-            <IoCall />
-            <span className="pl-2">01154102459</span>
+            <contact.call.icon />
+            <span className="pl-2">{contact.call.info}</span>
           </p>
         </div>
 
         {/* --- Socail Links --- */}
         <div className="mb-10">
           <Title>Social Links</Title>
-          <div className="grid grid-rows-2 grid-cols-2 gap-4 ">
+          <div className="grid grid-rows-2 grid-cols-2 gap-4">
             <Link
-              href={"https://www.linkedin.com/in/youturkey11/"}
+              href={social.linkedIn.link ? social.linkedIn.link : ''}
               target="_blank"
-              className="flex items-center"
+              className="flex items-center underline underline-offset-8 decoration-[#02ec63]"
             >
-              <FaLinkedin /> <span className="pl-2">/in/youturkey11</span>
+              <social.linkedIn.icon /> <span className="pl-2">{social.linkedIn.info}</span>
             </Link>
             <Link
-              href={"https://github.com/YoussefTurkey"}
+              href={social.github.link ? social.github.link : ''}
               target="_blank"
-              className="flex items-center"
+              className="flex items-center underline underline-offset-8 decoration-[#02ec63]"
             >
-              <FaSquareGithub /> <span className="pl-2">/YoussefTurkey</span>
+              <social.github.icon /> <span className="pl-2">{social.github.info}</span>
             </Link>
             <Link
-              href={"https://www.behance.net/YouTurkey11"}
+              href={social.behance.link ? social.behance.link : ''}
               target="_blank"
-              className="flex items-center"
+              className="flex items-center underline underline-offset-8 decoration-[#02ec63]"
             >
-              <FaBehanceSquare /> <span className="pl-2">/YouTurkey11</span>
+              <social.behance.icon /> <span className="pl-2">{social.behance.info}</span>
             </Link>
             <Link
-              href={
-                "https://qabilah.com/profile/youturkey11/professional-profile"
-              }
+              href={social.qabilah.link ? social.qabilah.link : ''}
               target="_blank"
-              className="flex items-center"
+              className="flex items-center underline underline-offset-8 decoration-[#02ec63]"
             >
               <Image
-                src={"/images/qabilah.png"}
+                src={social.qabilah.image ? social.qabilah.image : ''}
                 width={15}
                 height={15}
-                alt="qabilah"
+                alt={social.qabilah.title ? social.qabilah.title : ''}
                 loading="lazy"
-              />{" "}
-              <span className="pl-2">/youturkey11</span>
+              />
+              <span className="pl-2">{social.qabilah.info}</span>
             </Link>
           </div>
         </div>
@@ -240,18 +221,7 @@ const LeftSide = () => {
         {/* --- Summary --- */}
         <div className="mb-10" id="summary">
           <Title>Summary</Title>
-          <p className="mb-1 leading-[1.8]">
-            I am a{" "}
-            <span className="font-bold">Full-Stack WordPress Developer</span> &{" "}
-            <span className="font-bold">Front-End Engineer</span>, specializing
-            in building scalable e-commerce websites and high-performance web
-            applications. With expertise in{" "}
-            <span className="font-bold">
-              WooCommerce, Elementor, Next.js, and Strapi
-            </span>
-            , I create seamless digital experiences tailored for businesses and
-            startups.
-          </p>
+          <p className="mb-1 leading-[1.8]">{summary.info}</p>
         </div>
 
         {/* --- Education --- */}
@@ -260,10 +230,10 @@ const LeftSide = () => {
           <div>
             <div className={styles.dots}></div>
             <div className="ml-8 mt-[-15px]">
-              <h4 className="font-bold tracking-[3]">Bachelor of Science</h4>
-              <h5>Alexandria University</h5>
-              <p className="text-[#ccc]">2019 - 2022</p>
-              <p className="text-[#ccc]">3.06 / 4.00 GPA (very Good)</p>
+              <h4 className="font-bold tracking-[3]">{education.qualified}</h4>
+              <h5>{education.university}</h5>
+              <p className="text-[#ccc]">{education.year}</p>
+              <p className="text-[#ccc]">{education.degree}</p>
             </div>
           </div>
         </div>

@@ -25,10 +25,10 @@ const RightSide = () => {
 
         {Object.values(experience).map((exp, i) => {
           return (
-            <div className="mb-3" key={i}>
+            <div className="my-5" key={i}>
               <div className={styles.dots}></div>
               <div className="ml-8 mt-[-15px]">
-                <h4 className="font-bold tracking-[3]">{exp.jobTitle}</h4>
+                <h4 className="font-bold tracking-[3] mb-3 sm:flex"><span className="block">{exp.jobTitle}</span> <span className="ml-2 bg-[#707070] text-[#fff] px-2 py-1 rounded-sm text-sm capitalize">{exp.time}</span></h4>
                 <h5>{exp.date}</h5>
                 <p className="text-[#ccc]">{exp.info}</p>
               </div>
@@ -94,7 +94,7 @@ const RightSide = () => {
                 </div>
 
                 <div className="lg:w-[20%]">
-                    <Link href={proj.link} target="_blank" className="text-[#ccc] hover:text-[#fff] transition-all flex items-center"><FaExternalLinkAlt /> <span className="pl-2 underline underline-offset-8 lg:no-underline decoration-[#02ec63]">See Project</span></Link>
+                    <Link href={proj.link} target="_blank" className="text-[#ccc] hover:text-[#fff] transition-all flex items-center"><FaExternalLinkAlt /> <span className="pl-2 underline underline-offset-8 decoration-[#02ec63]">See Project</span></Link>
                 </div>
               </div>
             </div>
