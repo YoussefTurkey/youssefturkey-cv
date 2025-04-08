@@ -70,6 +70,56 @@ const LeftSide = () => {
 
   return (
     <section className="container mx-auto w-[100%] lg:w-[425px] px-10 py-5 bg-[#181616] flex flex-col md:justify-start items-start lg:rounded-tl-xl lg:rounded-bl-xl relative">
+      <Popup isOpen={showPopup} onClose={() => setShowPopup(false)}>
+        <div className="flex items-center justify-start">
+          <Image
+            src={popup.image}
+            width={600}
+            height={600}
+            alt="youssef-turkey"
+            loading="lazy"
+            className="w-20 h-20 md:w-30 md:h-30 rounded-full border-2 border-[#02ec63]"
+          />
+          <h3 className="py-2 pl-5 text-md md:text-2xl">
+            {`Hello, I'm`}
+            <br />
+            <span className="underline decoration-[#02ec63] font-bold text-md md:text-3xl">
+              {popup.name}
+            </span>
+            .
+          </h3>
+        </div>
+
+        <div className="flex flex-col justify-start pt-5">
+          <p className="text-lg">{popup.info[0]}</p>
+          <p className="py-2 text-lg">{popup.info[1]}</p>
+          <div className="pt-2">
+            <h4>Feel free to get in touch with me via:</h4>
+            <div className="flex justify-start items-center gap-5">
+              <button className="flex items-center justify-center mt-3 rounded-lg cursor-pointer px-5 py-2 ring-2 ring-[#02ec63] transition-all">
+                <IoLogoWhatsapp className="text-[#02ec63] text-md md:text-xl" />
+                <Link
+                  href={popup.whatsapp}
+                  target="_blank"
+                  className="pl-2 text-[#02ec63] font-bold text-sm md:text-md"
+                >
+                  Text me
+                </Link>
+              </button>
+              <button className="flex items-center justify-center mt-3 ring-2 ring-[#02ec63] rounded-lg cursor-pointer px-5 py-2">
+                <FaEnvelope className="text-[#02ec63] text-md md:text-xl" />
+                <Link
+                  href={popup.email}
+                  className="pl-2 text-[#02ec63] font-bold text-sm md:text-md"
+                >
+                  Email me
+                </Link>
+              </button>
+            </div>
+          </div>
+        </div>
+      </Popup>
+
       <div className="lg:sticky lg:top-5">
         {/* --- Profile --- */}
         {/* --- Image & Name & Job Title & Popup(Modal) --- */}
@@ -99,55 +149,6 @@ const LeftSide = () => {
           </div>
         </div>
 
-        <Popup isOpen={showPopup} onClose={() => setShowPopup(false)}>
-          <div className="flex items-center justify-start">
-            <Image
-              src={popup.image}
-              width={600}
-              height={600}
-              alt="youssef-turkey"
-              loading="lazy"
-              className="w-30 h-30 rounded-full border-2 border-[#02ec63]"
-            />
-            <h3 className="py-2 pl-5 text-2xl">
-              {`Hello, I'm`}
-              <br />
-              <span className="underline decoration-[#02ec63] font-bold text-3xl">
-                {popup.name}
-              </span>
-              .
-            </h3>
-          </div>
-          <div className="flex flex-col justify-start pt-5">
-            <p className="text-lg">{popup.info[0]}</p>
-            <p className="py-2 text-lg">{popup.info[1]}</p>
-            <div className="pt-2">
-              <h4>Feel free to get in touch with me via:</h4>
-              <div className="flex justify-start items-center gap-5">
-                <button className="flex items-center justify-center mt-3 rounded-lg cursor-pointer px-5 py-2 ring-2 ring-[#02ec63] transition-all">
-                  <IoLogoWhatsapp className="text-[#02ec63] text-xl" />
-                  <Link
-                    href={popup.whatsapp}
-                    target="_blank"
-                    className="pl-2 text-[#02ec63] font-bold"
-                  >
-                    Text me
-                  </Link>
-                </button>
-                <button className="flex items-center justify-center mt-3 ring-2 ring-[#02ec63] rounded-lg cursor-pointer px-5 py-2">
-                  <FaEnvelope className="text-[#02ec63] text-xl" />
-                  <Link
-                    href={popup.email}
-                    className="pl-2 text-[#02ec63] font-bold"
-                  >
-                    Email me
-                  </Link>
-                </button>
-              </div>
-            </div>
-          </div>
-        </Popup>
-
         {/* --- Address & Email & Whatsapp & Call ---  */}
         <div className="my-10">
           <p className="flex items-center py-1">
@@ -156,7 +157,10 @@ const LeftSide = () => {
           </p>
           <p className="flex items-center py-1">
             <contact.email.icon />
-            <Link href={`mailto:${contact.email.link}`} className="pl-2 underline underline-offset-8 decoration-[#02ec63]">
+            <Link
+              href={`mailto:${contact.email.link}`}
+              className="pl-2 underline underline-offset-8 decoration-[#02ec63]"
+            >
               {contact.email.info}
             </Link>
           </p>
@@ -181,36 +185,39 @@ const LeftSide = () => {
           <Title>Social Links</Title>
           <div className="grid grid-rows-2 grid-cols-2 gap-4">
             <Link
-              href={social.linkedIn.link ? social.linkedIn.link : ''}
+              href={social.linkedIn.link ? social.linkedIn.link : ""}
               target="_blank"
               className="flex items-center underline underline-offset-8 decoration-[#02ec63]"
             >
-              <social.linkedIn.icon /> <span className="pl-2">{social.linkedIn.info}</span>
+              <social.linkedIn.icon />{" "}
+              <span className="pl-2">{social.linkedIn.info}</span>
             </Link>
             <Link
-              href={social.github.link ? social.github.link : ''}
+              href={social.github.link ? social.github.link : ""}
               target="_blank"
               className="flex items-center underline underline-offset-8 decoration-[#02ec63]"
             >
-              <social.github.icon /> <span className="pl-2">{social.github.info}</span>
+              <social.github.icon />{" "}
+              <span className="pl-2">{social.github.info}</span>
             </Link>
             <Link
-              href={social.behance.link ? social.behance.link : ''}
+              href={social.behance.link ? social.behance.link : ""}
               target="_blank"
               className="flex items-center underline underline-offset-8 decoration-[#02ec63]"
             >
-              <social.behance.icon /> <span className="pl-2">{social.behance.info}</span>
+              <social.behance.icon />{" "}
+              <span className="pl-2">{social.behance.info}</span>
             </Link>
             <Link
-              href={social.qabilah.link ? social.qabilah.link : ''}
+              href={social.qabilah.link ? social.qabilah.link : ""}
               target="_blank"
               className="flex items-center underline underline-offset-8 decoration-[#02ec63]"
             >
               <Image
-                src={social.qabilah.image ? social.qabilah.image : ''}
+                src={social.qabilah.image ? social.qabilah.image : ""}
                 width={15}
                 height={15}
-                alt={social.qabilah.title ? social.qabilah.title : ''}
+                alt={social.qabilah.title ? social.qabilah.title : ""}
                 loading="lazy"
               />
               <span className="pl-2">{social.qabilah.info}</span>

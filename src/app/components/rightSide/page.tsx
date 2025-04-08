@@ -28,7 +28,7 @@ const RightSide = () => {
             <div className="my-5" key={i}>
               <div className={styles.dots}></div>
               <div className="ml-8 mt-[-15px]">
-                <h4 className="font-bold tracking-[3] mb-3 sm:flex"><span className="block">{exp.jobTitle}</span> <span className="ml-2 bg-[#707070] text-[#fff] px-2 py-1 rounded-sm text-sm capitalize">{exp.time}</span></h4>
+                <h4 className="font-bold tracking-[3] mb-3 sm:flex"><span className="block">{exp.jobTitle}</span> <span className="ml-2 bg-[#707070] text-[#fff] px-2 py-1 rounded-sm text-[10px] capitalize">{exp.time}</span></h4>
                 <h5>{exp.date}</h5>
                 <p className="text-[#ccc]">{exp.info}</p>
               </div>
