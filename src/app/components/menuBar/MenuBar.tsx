@@ -8,6 +8,8 @@ import { FaUserCircle, FaInfoCircle, FaBookReader, FaAward, FaLanguage } from "r
 import { RiFileList3Fill } from "react-icons/ri";
 import { VscReferences } from "react-icons/vsc";
 import { LuLayoutList } from "react-icons/lu";
+// importing data
+import {menuBar} from '@/../public/database/data'
 
 const sections = [
   { id: "bio", icon: <FaUserCircle />, label: "Bio" },
@@ -60,14 +62,14 @@ const MenuBar = () => {
     <section className="block lg:hidden w-full container mx-auto">
       <div className="flex justify-between items-center px-10 py-3 border-t-2 border-[#2b2b2b] fixed bottom-0 w-full bg-[#212121] z-50">
         <Image
-          src="/images/logo-text.webp"
+          src={menuBar.image}
           width={100}
           height={100}
           alt="You11"
           loading="lazy"
         />
 
-        <button onClick={() => setMenu((prev) => !prev)}>
+        <button onClick={() => setMenu(!menu)}>
           <MdWindow className="text-2xl text-white" />
         </button>
       </div>

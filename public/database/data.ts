@@ -387,9 +387,12 @@ export const popup: IPopup = {
   email: "mailto:you.turkey11@gmail.com",
 };
 
-
-
-
+interface IMenu {
+  image: string
+}
+export const menuBar : IMenu = {
+  image: "/images/logo-text.webp"
+}
 
 
 
