@@ -1,5 +1,5 @@
 # My Resume :sparkles:
-Resume website was created by HTML5, CSS3 and JS
+Resume website was created by Next.js, Typescript, TailwindCSS, Sass
 > It has personal information
 You can view the website: [My Resume](https://youssefturkey-cv.vercel.app/)
 
