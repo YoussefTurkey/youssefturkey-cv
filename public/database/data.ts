@@ -35,7 +35,7 @@ type IContact = {
 export const contact: IContact = {
   address: {
     icon: TiLocation,
-    info: "ElTeraa-street, Alexandria - Egypt",
+    info: "Alexandria - Egypt",
   },
   email: {
     icon: FaEnvelope,
@@ -60,24 +60,24 @@ export const social: ISocial = {
   linkedIn: {
     icon: FaLinkedin,
     link: "https://www.linkedin.com/in/youturkey11/",
-    info: '/in/youturkey11'
+    info: "/in/youturkey11",
   },
   github: {
     icon: FaGithub,
     link: "https://github.com/YoussefTurkey",
-    info: '/YoussefTurkey'
+    info: "/YoussefTurkey",
   },
   behance: {
     icon: FaBehance,
     link: "https://www.behance.net/YouTurkey11",
-    info: '/YouTurkey11'
+    info: "/YouTurkey11",
   },
   qabilah: {
     icon: BsPersonCircle,
     link: "https://qabilah.com/profile/youturkey11/professional-profile",
-    info: '/youturkey11',
-    image:'/images/qabilah.webp',
-    title: 'qabilah'
+    info: "/youturkey11",
+    image: "/images/qabilah.webp",
+    title: "qabilah",
   },
 };
 
@@ -85,21 +85,21 @@ interface ISummary {
   info: string;
 }
 export const summary: ISummary = {
-  info: "I am aFull-Stack WordPress Developer &Front-End Engineer, specializing in building scalable e-commerce websites and high-performance web applications. With expertise inWooCommerce, Elementor, Next.js, and Strapi, I create seamless digital experiences tailored for businesses and startups.",
+  info: "Creative and detail-oriented Frontend Developer with over 2 years of experience in building modern, responsive web applications. Proficient in JavaScript, Next.js, SCSS, and WordPress (Elementor, WooCommerce) as part of a versatile tech stack. Passionate about UI/UX and delivering tailored digital experiences that drive engagement and performance.",
 };
 
 interface IEducation {
-  qualified : string,
-  university : string,
-  year: string,
-  degree : string
+  qualified: string;
+  university: string;
+  year: string;
+  degree: string;
 }
-export const education : IEducation = {
-  qualified : 'Bachelor of Science',
-  university : 'Alexandria University',
-  year : '2019 - 2022',
-  degree : '3.06 / 4.00 GPA (very Good)'
-}
+export const education: IEducation = {
+  qualified: "Bachelor of Science",
+  university: "Alexandria University - Egypt",
+  year: "2019 - 2022",
+  degree: "3.06 / 4.00 GPA (very Good)",
+};
 
 interface ISkills {
   frontend: {
@@ -141,68 +141,102 @@ export const skills: ISkills = {
   },
 };
 
+interface ISoftSkills {
+  tools: string[];
+}
+export const softSkills: ISoftSkills = {
+  tools: [
+    "Strong Presentation Skills",
+    "Effective Communication",
+    "Team Leadership",
+    "Team Building",
+    "Passionate Learner",
+    "Problem Solving",
+    "Adaptability",
+  ],
+};
+
 interface IExperience {
   WPRawaj: {
     jobTitle: string;
     date: string;
-    info: string;
-    time: string
+    info: string[];
+    time: string;
   };
   WDSpaceTeens: {
     jobTitle: string;
     date: string;
-    info: string;
-    time: string
+    info: string[];
+    time: string;
   };
   GDRawaj: {
     jobTitle: string;
     date: string;
-    info: string;
-    time: string
+    info: string[];
+    time: string;
   };
   FDUSArabChamber: {
     jobTitle: string;
     date: string;
-    info: string;
-    time: string
+    info: string[];
+    time: string;
   };
   GDHerbal: {
     jobTitle: string;
     date: string;
-    info: string;
-    time: string
+    info: string[];
+    time: string;
   };
 }
 export const experience: IExperience = {
   WPRawaj: {
     jobTitle: "Full-Stack WordPress Developer (Present)",
     date: "15th of Nov 2024 | in Rawaj",
-    info: "Creating E-Commerce Store using WordPress, Elementor Pro, and WooCommerce. And creating UI in Figma from scratch.",
-    time: 'full-Time'
+    info: [
+      "Built a full e-commerce website from scratch using Elementor and WooCommerce, without relying on pre-made themes.",
+      "Optimized performance using essential plugins, achieving 78% website speed and performance score.",
+      "Designed a modern and responsive UI, ensuring a seamless user experience across devices.",
+      "Company now depends on the platform for 75% of its business operations.",
+    ],
+    time: "full-Time",
   },
   WDSpaceTeens: {
     jobTitle: "Web Development Instructor",
     date: "20th of February 2024 | in SpaceTeens",
-    info: "Teaching new methods to be a distinctive Frontend Developer.",
-    time: 'part-Time'
+    info: [
+      "Trained over 5 groups of children (ages 9–14) with a total of 40 hours per group.",
+      "Helped students build their own basic websites and successfully complete their graduation projects.",
+      "Supported children in preparing competitive projects for local and international contests.",
+    ],
+    time: "part-Time",
   },
   GDRawaj: {
     jobTitle: "Graphic Designer",
     date: "15th of May 2023 | in Rawaj",
-    info: "Design accessories and development the store application.",
-    time: 'full-Time'
+    info: [
+      "Designed customer visuals for production of keychains, coasters, phone holders, and various personalized gifts.",
+      "Promoted to lead the production and file preparation process.",
+      "Designed over 90% of the product artwork featured on Spot75.com, contributing to 70% of current sales.",
+    ],
+    time: "full-Time",
   },
   FDUSArabChamber: {
     jobTitle: "Front-End Developer",
     date: "5th of September 2022 | in US Arab Chamber of Commerce",
-    info: "Designing and Development the front of web applications.",
-    time: 'full-Time'
+    info: [
+      "Revamped outdated websites using modern frontend practices and resolved major technical issues.",
+      "Improved website responsiveness and overall design, achieving a 40% enhancement in visual appeal and usability.",
+    ],
+    time: "full-Time",
   },
   GDHerbal: {
     jobTitle: "Graphic Designing",
     date: "15th of September 2021 | in Herbal Globe",
-    info: "Designing commercial posters for medical advertising and marketing.",
-    time: 'Remotely'
+    info: [
+      "Designed engaging social media posts for product campaigns.",
+      "Helped campaigns achieve their goals through visual communication, contributing to 70% campaign success rate.",
+    ],
+    time: "Remotely",
   },
 };
 
@@ -225,13 +259,13 @@ export const certificates: ICertificate = {
     title: "Diploma of Quantum Computing & Programming (2022)",
     info: "successful completing the online workshop Quantum Computing & Programming using QWorld’s introductory tutorial Bronze-Qiskit.",
   },
+  Tanfezy: {
+    title: "Leadership Training Course presented by Tanfezy Initiative (2022)",
+    info: "Attended training workshops over a month, totaling 32 training hours, as part of the Executive Capabilities Program an initiative by Senator Alaa Mostafa.",
+  },
   AWCO: {
     title: "AWCO Training center (2021)",
     info: "successful passing in a summer training for students of the Faculty of Science (Sidi Bishr Branch).",
-  },
-  Tanfezy: {
-    title: "Leadership Training Course presented by Tanfezy Initiative",
-    info: "Attended training workshops over a month, totaling 32 training hours, as part of the Executive Capabilities Program an initiative by Senator Alaa Mostafa.",
   },
 };
 
@@ -389,17 +423,8 @@ export const popup: IPopup = {
 };
 
 interface IMenu {
-  image: string
+  image: string;
 }
-export const menuBar : IMenu = {
-  image: "/images/logo-text.webp"
-}
-
-
-
-
-
-
-
-
-
+export const menuBar: IMenu = {
+  image: "/images/logo-text.webp",
+};

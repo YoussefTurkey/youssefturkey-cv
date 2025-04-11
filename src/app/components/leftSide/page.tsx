@@ -22,6 +22,7 @@ import { contact } from "@/../public/database/data";
 import { social } from "@/../public/database/data";
 import { summary } from "@/../public/database/data";
 import { education } from "@/../public/database/data";
+import { softSkills } from "@/../public/database/data";
 import { popup } from "@/../public/database/data";
 
 const LeftSide = () => {
@@ -247,6 +248,18 @@ const LeftSide = () => {
         <div className="mb-10" id="skills">
           <Title>Technical Skills</Title>
           <Tabs tabs={tabData} />
+        </div>
+
+        {/* --- Soft Skills --- */}
+        <div className="mb-10">
+          <Title>Soft Skills</Title>
+          <ul className="list-disc pl-5">
+            {softSkills.tools.map((skill: string, i: number) => (
+              <li key={i} className="text-[#ccc] py-1">
+                {skill}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

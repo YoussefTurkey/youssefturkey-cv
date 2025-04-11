@@ -21,16 +21,22 @@ const RightSide = () => {
     <section className="container mx-auto w-[100%] lg:w-[975px] px-10 py-5 border-t-2 border-t-[#212121] lg:border-t-none bg-[#181616] lg:bg-[#212121] flex flex-col justify-start items-start lg:rounded-tr-xl lg:rounded-br-xl">
       {/* --- Experience --- */}
       <div className="mb-10" id="experience">
-        <Title>Experience</Title>
+        <Title>Work Experience</Title>
 
         {Object.values(experience).map((exp, i) => {
           return (
             <div className="my-5" key={i}>
               <div className={styles.dots}></div>
               <div className="ml-8 mt-[-15px]">
-                <h4 className="font-bold tracking-[3] mb-3 sm:flex"><span className="block">{exp.jobTitle}</span> <span className="ml-2 bg-[#707070] text-[#fff] px-2 py-1 rounded-sm text-[10px] capitalize">{exp.time}</span></h4>
+                <h4 className="font-bold mb-3 sm:flex"><span className="block">{exp.jobTitle}</span> <span className="ml-2 bg-[#707070] text-[#fff] px-2 py-1 rounded-sm text-[10px] capitalize">{exp.time}</span></h4>
                 <h5>{exp.date}</h5>
-                <p className="text-[#ccc]">{exp.info}</p>
+                <ul className="list-disc pl-5">
+                  {exp.info.map((role: string, i: number) => (
+                    <li key={i} className="text-[#ccc] py-1">
+                      {role}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           );
