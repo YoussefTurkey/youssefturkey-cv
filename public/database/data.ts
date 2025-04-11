@@ -1,6 +1,7 @@
 // importing Icons
 import { FaLinkedin, FaGithub, FaBehance } from "react-icons/fa";
 import { TiLocation } from "react-icons/ti";
+import { FaEnvelope } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { IoCall } from "react-icons/io5";
 import { BsPersonCircle } from "react-icons/bs";
@@ -37,7 +38,7 @@ export const contact: IContact = {
     info: "ElTeraa-street, Alexandria - Egypt",
   },
   email: {
-    icon: TiLocation,
+    icon: FaEnvelope,
     link: "you.turkey11@gmail.com",
     info: "you.turkey11@gmail.com",
   },

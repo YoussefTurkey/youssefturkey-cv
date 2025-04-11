@@ -14,8 +14,6 @@ const Tabs = dynamic(() => import("../tabs/Tab"));
 // importing data
 import { skills } from "@/../public/database/data";
 // importing React-Icons
-import { FaEnvelope } from "react-icons/fa6";
-import { IoLogoWhatsapp } from "react-icons/io";
 // importing popups component
 import Popup from "../popup/Popup";
 // importing data
@@ -97,7 +95,7 @@ const LeftSide = () => {
             <h4>Feel free to get in touch with me via:</h4>
             <div className="flex justify-start items-center gap-5">
               <button className="flex items-center justify-center mt-3 rounded-lg cursor-pointer px-5 py-2 ring-2 ring-[#02ec63] transition-all">
-                <IoLogoWhatsapp className="text-[#02ec63] text-md md:text-xl" />
+                <contact.whatsapp.icon className="text-[#02ec63] text-md md:text-xl" />
                 <Link
                   href={popup.whatsapp}
                   target="_blank"
@@ -107,7 +105,7 @@ const LeftSide = () => {
                 </Link>
               </button>
               <button className="flex items-center justify-center mt-3 ring-2 ring-[#02ec63] rounded-lg cursor-pointer px-5 py-2">
-                <FaEnvelope className="text-[#02ec63] text-md md:text-xl" />
+                <contact.email.icon className="text-[#02ec63] text-md md:text-xl" />
                 <Link
                   href={popup.email}
                   className="pl-2 text-[#02ec63] font-bold text-sm md:text-md"
