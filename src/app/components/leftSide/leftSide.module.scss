@@ -53,3 +53,13 @@
     transform: translateX(-50%);
   }
 }
+
+.contactBtn{
+  transition: all 0.3s ease;
+  &:hover{
+    background-color: #02ec63;
+  }
+  &:hover svg, &:hover a{
+    color: #181616;
+  }
+}

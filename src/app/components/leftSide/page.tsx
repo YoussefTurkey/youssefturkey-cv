@@ -95,7 +95,7 @@ const LeftSide = () => {
           <div className="pt-2">
             <h4>Feel free to get in touch with me via:</h4>
             <div className="flex justify-start items-center gap-5">
-              <button className="flex items-center justify-center mt-3 rounded-lg cursor-pointer px-5 py-2 ring-2 ring-[#02ec63] transition-all">
+              <button className={`${styles.contactBtn} flex items-center justify-center mt-3 rounded-lg cursor-pointer px-5 py-2 ring-2 ring-[#02ec63] transition-all`}>
                 <contact.whatsapp.icon className="text-[#02ec63] text-md md:text-xl" />
                 <Link
                   href={popup.whatsapp}
@@ -105,7 +105,7 @@ const LeftSide = () => {
                   Text me
                 </Link>
               </button>
-              <button className="flex items-center justify-center mt-3 ring-2 ring-[#02ec63] rounded-lg cursor-pointer px-5 py-2">
+              <button className={`${styles.contactBtn} flex items-center justify-center mt-3 ring-2 ring-[#02ec63] rounded-lg cursor-pointer px-5 py-2`}>
                 <contact.email.icon className="text-[#02ec63] text-md md:text-xl" />
                 <Link
                   href={popup.email}
