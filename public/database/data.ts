@@ -45,11 +45,11 @@ export const contact: IContact = {
   whatsapp: {
     icon: IoLogoWhatsapp,
     link: "https://wa.me/01273451052",
-    info: "01273451052",
+    info: "+20 127 345 1052",
   },
   call: {
     icon: IoCall,
-    info: "01154102459",
+    info: "+20 115 410 2459",
   },
 };
 

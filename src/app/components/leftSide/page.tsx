@@ -150,11 +150,11 @@ const LeftSide = () => {
 
         {/* --- Address & Email & Whatsapp & Call ---  */}
         <div className="my-10">
-          <p className="flex items-center py-1">
+          <p className="flex items-center pb-2">
             <contact.address.icon />
             <span className="pl-2">{contact.address.info}</span>
           </p>
-          <p className="flex items-center py-1">
+          <p className="flex items-center pb-2">
             <contact.email.icon />
             <Link
               href={`mailto:${contact.email.link}`}
@@ -163,7 +163,7 @@ const LeftSide = () => {
               {contact.email.info}
             </Link>
           </p>
-          <p className="flex items-center py-1 underline underline-offset-8 decoration-[#02ec63]">
+          <p className="flex items-center pb-2 underline underline-offset-8 decoration-[#02ec63]">
             <contact.whatsapp.icon />
             <Link
               href={contact.whatsapp.link ? contact.whatsapp.link : ""}
