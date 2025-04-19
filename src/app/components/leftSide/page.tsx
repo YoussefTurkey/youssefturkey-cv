@@ -71,10 +71,8 @@ const LeftSide = () => {
     <section className="container mx-auto w-[100%] lg:w-[425px] px-10 py-5 bg-[#181616] flex flex-col md:justify-start items-start lg:rounded-tl-xl lg:rounded-bl-xl relative">
       <Popup isOpen={showPopup} onClose={() => setShowPopup(false)}>
         <div className="flex items-center justify-start">
-          <Image
+          <img
             src={popup.image}
-            width={600}
-            height={600}
             alt="youssef-turkey"
             loading="lazy"
             className="w-20 h-20 md:w-30 md:h-30 rounded-full border-2 border-[#02ec63]"
@@ -129,10 +127,8 @@ const LeftSide = () => {
               className="group w-[200px] h-[200px] rounded-full overflow-hidden mx-auto hover:shadow-2xl border-2 border-[#181616] hover:border-[#02ec63] transition-all duration-300"
               onClick={() => setShowPopup(true)}
             >
-              <Image
+              <img
                 src={persona.image}
-                width={600}
-                height={600}
                 alt="youssef-turkey"
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"

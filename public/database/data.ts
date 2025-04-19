@@ -44,7 +44,7 @@ export const contact: IContact = {
   },
   whatsapp: {
     icon: IoLogoWhatsapp,
-    link: "https://wa.me/01273451052",
+    link: "https://wa.me/201273451052",
     info: "+20 127 345 1052",
   },
   call: {
@@ -418,7 +418,7 @@ export const popup: IPopup = {
     `I'm a frontend developer helping businesses and individuals improve their websites using tools like TypeScript, SCSS, TailwindCSS, Strapi, WordPress, Elementor, and many more that you can find in the Technical Skills section of my CV.`,
     `I also have experience in graphic design, where I assist companies in creating their visual identity using tools like Photoshop, Illustrator, and CorelDraw.`,
   ],
-  whatsapp: "https://wa.me/01273451052",
+  whatsapp: "https://wa.me/201273451052",
   email: "mailto:you.turkey11@gmail.com",
 };
 
