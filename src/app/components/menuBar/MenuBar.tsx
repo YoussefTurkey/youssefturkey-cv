@@ -1,6 +1,5 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { MdWindow, MdWork } from "react-icons/md";
@@ -8,8 +7,8 @@ import { FaUserCircle, FaInfoCircle, FaBookReader, FaAward, FaLanguage } from "r
 import { RiFileList3Fill } from "react-icons/ri";
 import { VscReferences } from "react-icons/vsc";
 import { LuLayoutList } from "react-icons/lu";
-// importing data
-import {menuBar} from '@/../public/database/data'
+// importing Components
+import Logo from "../images/Logo";
 
 const sections = [
   { id: "bio", icon: <FaUserCircle />, label: "Bio" },
@@ -60,17 +59,11 @@ const MenuBar = () => {
 
   return (
     <section className="block lg:hidden w-full container mx-auto">
-      <div className="flex justify-between items-center px-10 py-3 border-t-2 border-[#2b2b2b] fixed bottom-0 w-full bg-[#212121] z-50">
-        <Image
-          src={menuBar.image}
-          width={100}
-          height={100}
-          alt="You11"
-          loading="lazy"
-        />
+      <div className="flex justify-between items-center px-10 py-3 border-t-2 border-[hsl(var(--secondary))] fixed bottom-0 w-full bg-[hsl(var(--primary))] z-50">
+        <Logo />
 
         <button onClick={() => setMenu(!menu)}>
-          <MdWindow className="text-2xl text-white" />
+          <MdWindow className="text-2xl text-[hsl(var(--foreground))]" />
         </button>
       </div>
 
@@ -82,7 +75,7 @@ const MenuBar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.2 }}
-            className="w-full grid grid-cols-3 grid-rows-3 gap-x-10 gap-y-5 p-5 border-t border-[#ccc] fixed bottom-12 bg-[#2b2b2b] z-40"
+            className="w-full grid grid-cols-3 grid-rows-3 gap-x-10 gap-y-5 p-5 border-t border-[hsl(var(--secondary))] fixed bottom-12 bg-[hsl(var(--primary))] z-40"
             ref={menuRef}
           >
             {sections.map(({ id, icon, label }) => (
@@ -91,8 +84,8 @@ const MenuBar = () => {
                 href={`#${id}`}
                 onClick={() => setMenu(false)}
                 className={`flex flex-col justify-center items-center ${
-                  activeSection === id ? "text-[#02ec63]" : "text-[#ccc]"
-                } hover:text-[#02ec63] transition-all duration-200`}
+                  activeSection === id ? "text-[hsl(var(--plus))]" : "text-[hsl(var(--foreground))]"
+                } hover:text-[hsl(var(--plus))] transition-all duration-200`}
               >
                 <span className="p-2">{icon}</span>
                 <span className="text-center text-sm">{label}</span>

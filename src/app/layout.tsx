@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.scss";
+import ClientThemeProvider from "./theme/ClientThemeProvider";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -9,7 +10,7 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: "Youssef Turkey CV",
-  description: "Youssef is a software developer | Full-Stack WordPress | Frontend-Next.js | Visual Brand Identity Designer",
+  description: "Youssef is a Frontend-Next.js",
 };
 
 export default function RootLayout({
@@ -22,7 +23,9 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} antialiased`}
       >
+        <ClientThemeProvider>
         {children}
+        </ClientThemeProvider>
       </body>
     </html>
   );

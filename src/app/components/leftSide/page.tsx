@@ -7,13 +7,14 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 // import style
 import styles from "./leftSide.module.scss";
+// importing Theme Components
+const ThemeToggle = dynamic(() => import("@/app/theme/ThemeToggle"));
 // importing Title Components
 const Title = dynamic(() => import("../title/Title"));
 // importing Tab component
 const Tabs = dynamic(() => import("../tabs/Tab"));
 // importing data
 import { skills } from "@/../public/database/data";
-// importing React-Icons
 // importing popups component
 import Popup from "../popup/Popup";
 // importing data
@@ -32,7 +33,7 @@ const LeftSide = () => {
       content: (
         <ul className="list-disc pl-5">
           {skills.frontend.tools.map((tool, index) => (
-            <li key={index} className="text-[#ccc] py-1">
+            <li key={index} className="py-1">
               {tool}
             </li>
           ))}
@@ -44,7 +45,7 @@ const LeftSide = () => {
       content: (
         <ul className="list-disc pl-5">
           {skills.backend.tools.map((tool, index) => (
-            <li key={index} className="text-[#ccc] py-1">
+            <li key={index} className="py-1">
               {tool}
             </li>
           ))}
@@ -56,7 +57,7 @@ const LeftSide = () => {
       content: (
         <ul className="list-disc pl-5">
           {skills.design.tools.map((tool, index) => (
-            <li key={index} className="text-[#ccc] py-1">
+            <li key={index} className="py-1">
               {tool}
             </li>
           ))}
@@ -68,19 +69,19 @@ const LeftSide = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   return (
-    <section className="container mx-auto w-[100%] lg:w-[425px] px-10 py-5 bg-[#181616] flex flex-col md:justify-start items-start lg:rounded-tl-xl lg:rounded-bl-xl relative">
+    <section className="container mx-auto w-[100%] lg:w-[425px] bg-[hsl(var(--secondary))] lg:bg-[hsl(var(--primary))] px-10 py-5 flex flex-col md:justify-start items-start lg:rounded-tl-xl lg:rounded-bl-xl relative">
       <Popup isOpen={showPopup} onClose={() => setShowPopup(false)}>
         <div className="flex items-center justify-start">
           <img
             src={popup.image}
             alt="youssef-turkey"
             loading="lazy"
-            className="w-20 h-20 md:w-30 md:h-30 rounded-full border-2 border-[#02ec63]"
+            className="w-20 h-20 md:w-30 md:h-30 rounded-full border-2 border-[hsl(var(--plus))]"
           />
           <h3 className="py-2 pl-5 text-md md:text-2xl">
             {`Hello, I'm`}
             <br />
-            <span className="underline decoration-[#02ec63] font-bold text-md md:text-3xl">
+            <span className="underline decoration-[hsl(var(--plus))] font-bold text-md md:text-3xl">
               {popup.name}
             </span>
             .
@@ -93,21 +94,25 @@ const LeftSide = () => {
           <div className="pt-2">
             <h4>Feel free to get in touch with me via:</h4>
             <div className="flex justify-start items-center gap-5">
-              <button className={`${styles.contactBtn} flex items-center justify-center mt-3 rounded-lg cursor-pointer px-5 py-2 ring-2 ring-[#02ec63] transition-all`}>
-                <contact.whatsapp.icon className="text-[#02ec63] text-md md:text-xl" />
+              <button
+                className={`${styles.contactBtn} flex items-center justify-center mt-3 rounded-lg cursor-pointer px-5 py-2 ring-2 ring-[hsl(var(--plus))] transition-all`}
+              >
+                <contact.whatsapp.icon className="text-[hsl(var(--plus))] text-md md:text-xl" />
                 <Link
                   href={popup.whatsapp}
                   target="_blank"
-                  className="pl-2 text-[#02ec63] font-bold text-sm md:text-md"
+                  className="pl-2 text-[hsl(var(--plus))] font-bold text-sm md:text-md"
                 >
                   Text me
                 </Link>
               </button>
-              <button className={`${styles.contactBtn} flex items-center justify-center mt-3 ring-2 ring-[#02ec63] rounded-lg cursor-pointer px-5 py-2`}>
-                <contact.email.icon className="text-[#02ec63] text-md md:text-xl" />
+              <button
+                className={`${styles.contactBtn} flex items-center justify-center mt-3 ring-2 ring-[hsl(var(--plus))] rounded-lg cursor-pointer px-5 py-2`}
+              >
+                <contact.email.icon className="text-[hsl(var(--plus))] text-md md:text-xl" />
                 <Link
                   href={popup.email}
-                  className="pl-2 text-[#02ec63] font-bold text-sm md:text-md"
+                  className="pl-2 text-[hsl(var(--plus))] font-bold text-sm md:text-md"
                 >
                   Email me
                 </Link>
@@ -119,28 +124,34 @@ const LeftSide = () => {
 
       <div className="lg:sticky lg:top-5">
         {/* --- Profile --- */}
-        {/* --- Image & Name & Job Title & Popup(Modal) --- */}
         <div id="bio">
-          <div className={styles.relat}>
-            <div className={styles.puls}></div>
-            <div
-              className="group w-[200px] h-[200px] rounded-full overflow-hidden mx-auto hover:shadow-2xl border-2 border-[#181616] hover:border-[#02ec63] transition-all duration-300"
-              onClick={() => setShowPopup(true)}
-            >
-              <img
-                src={persona.image}
-                alt="youssef-turkey"
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"
-              />
-            </div>
+          <div className="mt-5">
+            <ThemeToggle />
           </div>
 
-          <div className="text-center">
-            <h1 className="font-bold text-[26px] text-[#fcfcfc] py-2 tracking-[4]">
-              {persona.fullName}
-            </h1>
-            <p>{persona.jobTitle}</p>
+          {/* --- Image & Name & Job Title & Popup(Modal) --- */}
+          <div>
+            <div className={styles.relat}>
+              <div className={`${styles.puls} bg-[hsl(var(--plus))]`}></div>
+              <div
+                className="group w-[200px] h-[200px] rounded-full overflow-hidden mx-auto hover:shadow-2xl border-2 border-[#181616] hover:border-[hsl(var(--plus))] transition-all duration-300"
+                onClick={() => setShowPopup(true)}
+              >
+                <img
+                  src={persona.image}
+                  alt="youssef-turkey"
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 cursor-pointer"
+                />
+              </div>
+            </div>
+
+            <div className="text-center">
+              <h1 className="font-bold text-[26px] py-2 tracking-[4]">
+                {persona.fullName}
+              </h1>
+              <p>{persona.jobTitle}</p>
+            </div>
           </div>
         </div>
 
@@ -154,12 +165,12 @@ const LeftSide = () => {
             <contact.email.icon />
             <Link
               href={`mailto:${contact.email.link}`}
-              className="pl-2 underline underline-offset-8 decoration-[#02ec63]"
+              className="pl-2 underline underline-offset-8 decoration-[hsl(var(--plus))]"
             >
               {contact.email.info}
             </Link>
           </p>
-          <p className="flex items-center pb-2 underline underline-offset-8 decoration-[#02ec63]">
+          <p className="flex items-center pb-2 underline underline-offset-8 decoration-[hsl(var(--plus))]">
             <contact.whatsapp.icon />
             <Link
               href={contact.whatsapp.link ? contact.whatsapp.link : ""}
@@ -182,7 +193,7 @@ const LeftSide = () => {
             <Link
               href={social.linkedIn.link ? social.linkedIn.link : ""}
               target="_blank"
-              className="flex items-center underline underline-offset-8 decoration-[#02ec63]"
+              className="flex items-center underline underline-offset-8 decoration-[hsl(var(--plus))]"
             >
               <social.linkedIn.icon />{" "}
               <span className="pl-2">{social.linkedIn.info}</span>
@@ -190,7 +201,7 @@ const LeftSide = () => {
             <Link
               href={social.github.link ? social.github.link : ""}
               target="_blank"
-              className="flex items-center underline underline-offset-8 decoration-[#02ec63]"
+              className="flex items-center underline underline-offset-8 decoration-[hsl(var(--plus))]"
             >
               <social.github.icon />{" "}
               <span className="pl-2">{social.github.info}</span>
@@ -198,7 +209,7 @@ const LeftSide = () => {
             <Link
               href={social.behance.link ? social.behance.link : ""}
               target="_blank"
-              className="flex items-center underline underline-offset-8 decoration-[#02ec63]"
+              className="flex items-center underline underline-offset-8 decoration-[hsl(var(--plus))]"
             >
               <social.behance.icon />{" "}
               <span className="pl-2">{social.behance.info}</span>
@@ -206,7 +217,7 @@ const LeftSide = () => {
             <Link
               href={social.qabilah.link ? social.qabilah.link : ""}
               target="_blank"
-              className="flex items-center underline underline-offset-8 decoration-[#02ec63]"
+              className="flex items-center underline underline-offset-8 decoration-[hsl(var(--plus))]"
             >
               <Image
                 src={social.qabilah.image ? social.qabilah.image : ""}
@@ -234,8 +245,8 @@ const LeftSide = () => {
             <div className="ml-8 mt-[-15px]">
               <h4 className="font-bold tracking-[3]">{education.qualified}</h4>
               <h5>{education.university}</h5>
-              <p className="text-[#ccc]">{education.year}</p>
-              <p className="text-[#ccc]">{education.degree}</p>
+              <p>{education.year}</p>
+              <p>{education.degree}</p>
             </div>
           </div>
         </div>
@@ -251,7 +262,7 @@ const LeftSide = () => {
           <Title>Soft Skills</Title>
           <ul className="list-disc pl-5">
             {softSkills.tools.map((skill: string, i: number) => (
-              <li key={i} className="text-[#ccc] py-1">
+              <li key={i} className="py-1">
                 {skill}
               </li>
             ))}

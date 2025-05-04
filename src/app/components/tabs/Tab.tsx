@@ -16,14 +16,14 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
   return (
     <div className="w-fit lg:w-full max-w-2xl lg:mx-auto">
       {/* --- Tabs Header --- */}
-      <div className="flex bg-[#212121] rounded-full py-1 px-[15px]">
+      <div className="flex bg-[hsl(var(--third))] rounded-full py-1 px-[15px]">
         {tabs.map((tab, index) => (
           <button
             key={index}
             className={`py-2 px-3 font-semibold transition-all duration-300 cursor-pointer text-[12px] lg:text-[16px] ${
               activeTab === index
-                ? "text-[#02ec63] rounded-full py-1 px-[15px]"
-                : "text-gray-400 hover:text-[#02ec63]"
+                ? "text-[hsl(var(--plus))] rounded-full py-1 px-[15px]"
+                : "text-gray-400 hover:text-[hsl(var(--plus))]"
             }`}
             onClick={() => setActiveTab(index)}
           >

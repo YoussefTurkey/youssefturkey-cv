@@ -18,7 +18,7 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 
 const RightSide = () => {
   return (
-    <section className="container mx-auto w-[100%] lg:w-[975px] px-10 py-5 border-t-2 border-t-[#212121] lg:border-t-none bg-[#181616] lg:bg-[#212121] flex flex-col justify-start items-start lg:rounded-tr-xl lg:rounded-br-xl">
+    <section className="container mx-auto w-[100%] lg:w-[975px] px-10 py-5 lg:border-t-none bg-[hsl(var(--secondary))] flex flex-col justify-start items-start lg:rounded-tr-xl lg:rounded-br-xl">
       {/* --- Experience --- */}
       <div className="mb-10" id="experience">
         <Title>Work Experience</Title>
@@ -32,7 +32,7 @@ const RightSide = () => {
                 <h5>{exp.date}</h5>
                 <ul className="list-disc pl-5">
                   {exp.info.map((role: string, i: number) => (
-                    <li key={i} className="text-[#ccc] py-1">
+                    <li key={i} className="py-1">
                       {role}
                     </li>
                   ))}
@@ -52,7 +52,7 @@ const RightSide = () => {
             <div key={i}>
               <div className="mb-5">
                 <h4 className="font-bold tracking-[3]">{cert.title}</h4>
-                <p className="text-[#ccc]">{cert.info}</p>
+                <p>{cert.info}</p>
               </div>
             </div>
           );
@@ -70,8 +70,8 @@ const RightSide = () => {
                 <div className="mb-5">
                   <span className="text-[14px] text-[#707070]">{ref.position}</span>
                   <h4 className="font-bold tracking-[3] mb-2">{ref.name}</h4>
-                  <p className="text-[#ccc]">PHONE: {ref.phone}</p>
-                  { ref.email ? <p className="text-[#ccc]">EMAIL: {ref.email}</p> : ''}
+                  <p>PHONE: {ref.phone}</p>
+                  { ref.email ? <p>EMAIL: {ref.email}</p> : ''}
                 </div>
               </div>
             );
@@ -88,11 +88,11 @@ const RightSide = () => {
             <div key={i}>
               <div className="mb-10 lg:mb-5 flex flex-col lg:flex-row justify-between items-start gap-3 lg:gap-10">
                 <div className="lg:w-[80%]">
-                  <h4>{proj.title}: <span className="text-[#ccc]">{proj.info}</span></h4>
+                  <h4><span className="font-bold">{proj.title}:</span> <span>{proj.info}</span></h4>
                   <h5 className="mt-2">Key responsibility:</h5>
                   <ul className="list-disc pl-5">
                     {proj.responsibility.map((item: string, i: number) => (
-                      <li key={i} className="text-[#ccc] py-1">
+                      <li key={i} className="py-1">
                         {item}
                       </li>
                     ))}
@@ -100,7 +100,7 @@ const RightSide = () => {
                 </div>
 
                 <div className="lg:w-[20%]">
-                    <Link href={proj.link} target="_blank" className="text-[#ccc] hover:text-[#fff] transition-all flex items-center"><FaExternalLinkAlt /> <span className="pl-2 underline underline-offset-8 decoration-[#02ec63]">See Project</span></Link>
+                    <Link href={proj.link} target="_blank" className="transition-all flex items-center"><FaExternalLinkAlt /> <span className="pl-2 underline underline-offset-8 decoration-[hsl(var(--plus))]">See Project</span></Link>
                 </div>
               </div>
             </div>
@@ -117,7 +117,7 @@ const RightSide = () => {
             return (
               <div key={i}>
                 <div className="mb-5">
-                  <h4><span className="font-bold">{lang.name}:</span> <span className="text-[#ccc]">{lang.level}</span></h4>
+                  <h4><span className="font-bold">{lang.name}:</span> <span>{lang.level}</span></h4>
                 </div>
               </div>
             );

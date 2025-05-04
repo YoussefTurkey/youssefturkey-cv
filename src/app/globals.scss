@@ -1,42 +1,33 @@
 @use "tailwindcss";
 
-:root {
-    // Light-Colors
-  --lightBackground: #fcfcfc;
-  --lightLeftSide: #f0efef;
-  --lightRightSide: #fafafa;
-    // Dark-Colors
-  --darkBackground: #2b2b2b;
-  --darkLeftSide: #181616;
-  --darkRightSide: #212121;
-}
-
-@theme inline {
-    // Light-Colors
-  --color-lightBackground: var(--lightBackground);
-  --color-lightLeftSide: var(--lightLeftSide);
-  --color-lightRightSide: var(--lightRightSide);
-    // Dark-Colors
-  --color-darkBackground: var(--darkBackground);
-  --color-darkLeftSide: var(--darkLeftSide);
-  --color-darkRightSide: var(--darkRightSide);
-    // Fonts
-  --font-sans: var(--font-roboto);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --lightBackground: #2b2b2b;
-    --darkBackground: #fcfcfc;
+    --background: 210 17% 98%;
+    --foreground: 222.2 84% 4.9%;
+    --primary: 210 14% 83%;
+    --secondary: 210 14% 89%;
+    --third: 210 17% 98%;
+    --plus: 201 100% 36%
   }
-}
 
-html{
-  scroll-behavior: smooth;
-}
+  .dark {
+    --background: 0 0 17%;
+    --foreground: 210 40% 98%;
+    --primary: 0 4% 9%;
+    --secondary: 0 0 13%;
+    --third: 0 0 13%;
+    --plus: 145 98% 47%
+  }
 
-body {
-  background: var(--lightBackground);
-  color: var(--darkBackground);
-  font-family: "Roboto", sans-serif;
+  body {
+    @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))] transition-colors duration-300;
+  }
+
+  html[dir="rtl"] {
+    text-align: right;
+  }
+  
+  html[dir="ltr"] {
+    text-align: left;
+  }
 }
