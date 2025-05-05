@@ -36,7 +36,7 @@ const RightSide = () => {
               <div className={styles.dots}></div>
               <div className="ml-8 mt-[-15px]">
                 <h4 className="font-bold mb-3 sm:flex">
-                  <span className="block">{exp.jobTitle}</span>{" "}
+                  <span className="block">{language === 'en' ? exp.jobTitle.en : exp.jobTitle.ar}</span>{" "}
                   <span className="ml-2 bg-[#707070] text-[#fff] px-2 py-1 rounded-sm text-[10px] capitalize">
                     {language === "en" ? exp.time.en : exp.time.ar}
                   </span>
