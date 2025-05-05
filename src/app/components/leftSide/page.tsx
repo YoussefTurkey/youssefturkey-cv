@@ -1,6 +1,5 @@
 "use client";
 // import next components
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 // importing components
@@ -9,22 +8,25 @@ import dynamic from "next/dynamic";
 import styles from "./leftSide.module.scss";
 // importing Theme Components
 const ThemeToggle = dynamic(() => import("@/app/theme/ThemeToggle"));
+const LanguageToggle = dynamic(() => import("@/app/lang/LanguageToggle"));
 // importing Title Components
 const Title = dynamic(() => import("../title/Title"));
 // importing Tab component
 const Tabs = dynamic(() => import("../tabs/Tab"));
 // importing data
-import { skills } from "@/../public/database/data";
+import { skills } from "@/app/lib/data";
 // importing popups component
 import Popup from "../popup/Popup";
 // importing data
-import { persona } from "@/../public/database/data";
-import { contact } from "@/../public/database/data";
-import { social } from "@/../public/database/data";
-import { summary } from "@/../public/database/data";
-import { education } from "@/../public/database/data";
-import { softSkills } from "@/../public/database/data";
-import { popup } from "@/../public/database/data";
+import { persona } from "@/app/lib/data";
+import { contact } from "@/app/lib/data";
+import { social } from "@/app/lib/data";
+import { summary } from "@/app/lib/data";
+import { education } from "@/app/lib/data";
+import { softSkills } from "@/app/lib/data";
+import { popup } from "@/app/lib/data";
+// using Translation
+import { useLanguage } from "@/app/lang/LanguageProvider";
 
 const LeftSide = () => {
   const tabData = [
@@ -68,13 +70,15 @@ const LeftSide = () => {
 
   const [showPopup, setShowPopup] = useState(false);
 
+  const { language } = useLanguage();
+
   return (
     <section className="container mx-auto w-[100%] lg:w-[425px] bg-[hsl(var(--secondary))] lg:bg-[hsl(var(--primary))] px-10 py-5 flex flex-col md:justify-start items-start lg:rounded-tl-xl lg:rounded-bl-xl relative">
       <Popup isOpen={showPopup} onClose={() => setShowPopup(false)}>
         <div className="flex items-center justify-start">
           <img
             src={popup.image}
-            alt="youssef-turkey"
+            alt={language === "en" ? popup.name.en : popup.name.ar}
             loading="lazy"
             className="w-20 h-20 md:w-30 md:h-30 rounded-full border-2 border-[hsl(var(--plus))]"
           />
@@ -82,17 +86,17 @@ const LeftSide = () => {
             {`Hello, I'm`}
             <br />
             <span className="underline decoration-[hsl(var(--plus))] font-bold text-md md:text-3xl">
-              {popup.name}
+              {language === "en" ? popup.name.en : popup.name.ar}
             </span>
             .
           </h3>
         </div>
 
         <div className="flex flex-col justify-start pt-5">
-          <p className="text-lg">{popup.info[0]}</p>
-          <p className="py-2 text-lg">{popup.info[1]}</p>
+          <p className="text-lg">{language === 'en' ? popup.info[0].en : popup.info[0].ar}</p>
+          <p className="py-2 text-lg">{language === 'en' ? popup.info[1].en : popup.info[1].ar}</p>
           <div className="pt-2">
-            <h4>Feel free to get in touch with me via:</h4>
+            <h4>{language === "en" ? 'Feel free to get in touch with me via:' : "لا تتردد في التواصل معي عبر:"}</h4>
             <div className="flex justify-start items-center gap-5">
               <button
                 className={`${styles.contactBtn} flex items-center justify-center mt-3 rounded-lg cursor-pointer px-5 py-2 ring-2 ring-[hsl(var(--plus))] hover:bg-[hsl(var(--plus))] transition-all`}
@@ -103,7 +107,7 @@ const LeftSide = () => {
                   target="_blank"
                   className="pl-2 text-[hsl(var(--plus))] font-bold text-sm md:text-md"
                 >
-                  Text me
+                  {language === 'en' ? 'Text me' : " راسلني عبر الواتساب"}
                 </Link>
               </button>
               <button
@@ -114,7 +118,7 @@ const LeftSide = () => {
                   href={popup.email}
                   className="pl-2 text-[hsl(var(--plus))] font-bold text-sm md:text-md"
                 >
-                  Email me
+                  {language === 'en' ? 'Email me' : 'راسلني عبر البريد'}
                 </Link>
               </button>
             </div>
@@ -125,8 +129,9 @@ const LeftSide = () => {
       <div className="lg:sticky lg:top-5">
         {/* --- Profile --- */}
         <div id="bio">
-          <div className="mt-5">
+          <div className="mt-5 flex items-center justify-between">
             <ThemeToggle />
+            <LanguageToggle />
           </div>
 
           {/* --- Image & Name & Job Title & Popup(Modal) --- */}
@@ -148,9 +153,9 @@ const LeftSide = () => {
 
             <div className="text-center">
               <h1 className="font-bold text-[26px] py-2 tracking-[4]">
-                {persona.fullName}
+                {language === 'en' ? persona.fullName.en : persona.fullName.ar}
               </h1>
-              <p>{persona.jobTitle}</p>
+              <p>{language === 'en' ? persona.jobTitle.en : persona.jobTitle.ar}</p>
             </div>
           </div>
         </div>
@@ -159,7 +164,7 @@ const LeftSide = () => {
         <div className="my-10">
           <p className="flex items-center pb-2">
             <contact.address.icon />
-            <span className="pl-2">{contact.address.info}</span>
+            <span className="pl-2">{language === 'en' ? contact.address.info.en : contact.address.info.ar} </span>
           </p>
           <p className="flex items-center pb-2">
             <contact.email.icon />
@@ -188,7 +193,7 @@ const LeftSide = () => {
 
         {/* --- Socail Links --- */}
         <div className="mb-10">
-          <Title>Social Links</Title>
+          <Title>{language === "en" ? "Social Links" : "روابط التواصل الاجتماعي"}</Title>
           <div className="grid grid-rows-2 grid-cols-2 gap-4">
             <Link
               href={social.linkedIn.link ? social.linkedIn.link : ""}
@@ -219,11 +224,11 @@ const LeftSide = () => {
               target="_blank"
               className="flex items-center underline underline-offset-8 decoration-[hsl(var(--plus))]"
             >
-              <Image
+              <img
                 src={social.qabilah.image ? social.qabilah.image : ""}
                 width={15}
                 height={15}
-                alt={social.qabilah.title ? social.qabilah.title : ""}
+                alt={language === 'en' ? social.qabilah.title.en ? social.qabilah.title.en : "" : social.qabilah.title.ar ? social.qabilah.title.ar : ""}
                 loading="lazy"
               />
               <span className="pl-2">{social.qabilah.info}</span>
@@ -233,39 +238,47 @@ const LeftSide = () => {
 
         {/* --- Summary --- */}
         <div className="mb-10" id="summary">
-          <Title>Summary</Title>
-          <p className="mb-1 leading-[1.8]">{summary.info}</p>
+          <Title>{language === 'en' ? 'Summary' : 'ملخص'}</Title>
+          <p className="mb-1 leading-[1.8]">{language === 'en' ? summary.info.en : summary.info.ar}</p>
         </div>
 
         {/* --- Education --- */}
         <div className="mb-10" id="education">
-          <Title>Education</Title>
+          <Title>{language === 'en' ? 'Education' : 'التعليم'}</Title>
           <div>
             <div className={styles.dots}></div>
             <div className="ml-8 mt-[-15px]">
-              <h4 className="font-bold tracking-[3]">{education.qualified}</h4>
-              <h5>{education.university}</h5>
+              <h4 className="font-bold tracking-[3]">{language === 'en' ? education.qualified.en : education.qualified.ar}</h4>
+              <h5>{language === 'en' ? education.university.en : education.university.ar}</h5>
               <p>{education.year}</p>
-              <p>{education.degree}</p>
+              <p>{language === 'en' ? education.degree.en : education.degree.ar}</p>
             </div>
           </div>
         </div>
 
         {/* --- Technical Skills --- */}
         <div className="mb-10" id="skills">
-          <Title>Technical Skills</Title>
+          <Title>{language === 'en' ? "Technical Skills" : "مهارات تقنية"}</Title>
           <Tabs tabs={tabData} />
         </div>
 
         {/* --- Soft Skills --- */}
         <div className="mb-10">
-          <Title>Soft Skills</Title>
+          <Title>{language === 'en' ? 'Soft Skills' : 'مهارات حياتية'}</Title>
           <ul className="list-disc pl-5">
-            {softSkills.tools.map((skill: string, i: number) => (
-              <li key={i} className="py-1">
-                {skill}
-              </li>
-            ))}
+            {language === 'en' ?
+              softSkills.tools.map((skill, i: number) => (
+                <li key={i} className="py-1">
+                  {skill.en}
+                </li>
+              ))
+              :
+              softSkills.tools.map((skill, i: number) => (
+                <li key={i} className="py-1">
+                  {skill.ar}
+                </li>
+              ))
+            }
           </ul>
         </div>
       </div>
