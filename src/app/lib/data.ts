@@ -9,26 +9,31 @@ import { IconType } from "react-icons"; // importing icon function in ts file
 
 // ---- language ----
 export type ILang = {
-  en: string,
-  ar: string
-}
+  en: string;
+  ar: string;
+};
 
 // ---- data ----
 interface IPersona {
   image: string;
   fullName: ILang;
   jobTitle: ILang;
+  jobTools: ILang;
 }
 export const persona: IPersona = {
   image: "/images/Youssef-Turkey.webp",
   fullName: {
     en: "Youssef Turkey",
-    ar: "يوسف التركي",
+    ar: "يــوســف الـــتركــي",
   },
   jobTitle: {
-    en: "Front-End Developer (React.js | Next.js | Typescript | Strapi | TailwindCSS | Scss/Sass | Bootstrap | jQuery)",
-    ar: "مطور واجهات المواقع الإلكترونية (React.js | Next.js | Typescript | Strapi | TailwindCSS | Scss/Sass | Bootstrap | jQuery)",
+    en: '"Front-End Developer"',
+    ar: '"مطور واجهات المواقع الإلكترونية"',
   },
+  jobTools: {
+    en: "(React.js | Next.js | Typescript | Strapi | TailwindCSS | Scss/Sass | Bootstrap | jQuery)",
+    ar: "(React.js | Next.js | Typescript | Strapi | TailwindCSS | Scss/Sass | Bootstrap | jQuery)"
+  }
 };
 
 type IContact = {
@@ -45,12 +50,12 @@ type IContact = {
   whatsapp: {
     icon: IconType;
     link?: string;
-    info: string;
+    info: ILang;
   };
   call: {
     icon: IconType;
     link?: string;
-    info: string;
+    info: ILang;
   };
 };
 export const contact: IContact = {
@@ -69,11 +74,17 @@ export const contact: IContact = {
   whatsapp: {
     icon: IoLogoWhatsapp,
     link: "https://wa.me/201273451052",
-    info: "+20 127 345 1052",
+    info: {
+      en: "+20 127 345 1052",
+      ar: "1052 345 127 20+"
+    },
   },
   call: {
     icon: IoCall,
-    info: "+20 115 410 2459",
+    info: {
+      en: "+20 115 410 2459",
+      ar: "2459 410 115 20+"
+    }
   },
 };
 
@@ -202,54 +213,30 @@ export const skills: ISkills = {
 };
 
 interface ISoftSkills {
-  tools: ILang[];
+  tools: { en: string; ar: string }[];
 }
 export const softSkills: ISoftSkills = {
   tools: [
     { en: "Strong Presentation Skills", ar: "مهارات قوية في العرض والتقديم" },
     { en: "Effective Communication", ar: "مهارات تواصل فعّالة" },
     { en: "Team Leadership", ar: "القدرة على قيادة الفريق" },
-    { en: "Team Building", ar: "القدرة بناء الفريق" },
+    { en: "Team Building", ar: "القدرة على بناء الفريق" },
     { en: "Passionate Learner", ar: "محب للتعلم بشغف" },
-    { en: "Problem Solving", ar: "القدرة حل المشكلات" },
-    { en: "Adaptability", ar: "القدرة التكيّف" },
+    { en: "Problem Solving", ar: "القدرة على حل المشكلات" },
+    { en: "Adaptability", ar: "القدرة على التكيّف" },
   ],
 };
 
 interface IExperience {
-  WPRawaj: {
-    jobTitle: ILang;
-    date: ILang;
-    info: ILang[];
-    time: ILang;
-  };
-  WDSpaceTeens: {
-    jobTitle: ILang;
-    date: ILang;
-    info: ILang[];
-    time: ILang;
-  };
-  GDRawaj: {
-    jobTitle: ILang;
-    date: ILang;
-    info: ILang[];
-    time: ILang;
-  };
-  FDUSArabChamber: {
-    jobTitle: ILang;
-    date: ILang;
-    info: ILang[];
-    time: ILang;
-  };
-  GDHerbal: {
-    jobTitle: ILang;
-    date: ILang;
-    info: ILang[];
-    time: ILang;
-  };
+  id: string;
+  jobTitle: ILang;
+  date: ILang;
+  info: ILang[];
+  time: ILang;
 }
-export const experience: IExperience = {
-  WPRawaj: {
+export const experience: IExperience[] = [
+  {
+    id: "WPRawaj",
     jobTitle: {
       en: "Full-Stack WordPress Developer (Present)",
       ar: "مطور ووردبريس متكامل (حالياً)",
@@ -275,7 +262,8 @@ export const experience: IExperience = {
     ],
     time: { en: "full-Time", ar: "دوام كامل" },
   },
-  WDSpaceTeens: {
+  {
+    id: "WDSpaceTeens",
     jobTitle: {
       en: "Web Development Instructor",
       ar: "مدرّب تطوير المواقع الإلكترونية",
@@ -300,7 +288,8 @@ export const experience: IExperience = {
     ],
     time: { en: "part-Time", ar: "دوام جزئي" },
   },
-  GDRawaj: {
+  {
+    id: "GDRawaj",
     jobTitle: { en: "Graphic Designer", ar: "مصمم جرافيك" },
     date: { en: "15th of May 2023 | in Rawaj", ar: "15 مايو 2023 | في رواج" },
     info: [
@@ -319,7 +308,8 @@ export const experience: IExperience = {
     ],
     time: { en: "full-Time", ar: "دوام كامل" },
   },
-  FDUSArabChamber: {
+  {
+    id: "FDUSArabChamber",
     jobTitle: { en: "Front-End Developer", ar: "مطور واجهة أمامية" },
     date: {
       en: "5th of September 2022 | in US Arab Chamber of Commerce",
@@ -337,7 +327,8 @@ export const experience: IExperience = {
     ],
     time: { en: "full-Time", ar: "دوام كامل" },
   },
-  GDHerbal: {
+  {
+    id: "GDHerbal",
     jobTitle: { en: "Graphic Designer", ar: "مصمم جرافيك" },
     date: {
       en: "15th of September 2021 | in Herbal Globe",
@@ -355,24 +346,16 @@ export const experience: IExperience = {
     ],
     time: { en: "Remotely", ar: "عَنْ بُعْد" },
   },
-};
+];
 
 interface ICertificate {
-  Quantum: {
-    title: ILang;
-    info: ILang;
-  };
-  AWCO: {
-    title: ILang;
-    info: ILang;
-  };
-  Tanfezy: {
-    title: ILang;
-    info: ILang;
-  };
+  id: string;
+  title: ILang;
+  info: ILang;
 }
-export const certificates: ICertificate = {
-  Quantum: {
+export const certificates: ICertificate[] = [
+  {
+    id: "Quantum",
     title: {
       en: "Diploma of Quantum Computing & Programming (2022)",
       ar: "دبلومة الحوسبة الكمية والبرمجة (2022)",
@@ -382,7 +365,8 @@ export const certificates: ICertificate = {
       ar: "إتمام ورشة العمل الإلكترونية بنجاح في مجال الحوسبة الكمية والبرمجة باستخدام البرنامج التمهيدي Bronze-Qiskit من QWorld.",
     },
   },
-  Tanfezy: {
+  {
+    id: "Tanfezy",
     title: {
       en: "Leadership Training Course presented by Tanfezy Initiative (2022)",
       ar: "دورة تدريبية في القيادة مقدمة من مبادرة تنفيذي (2022)",
@@ -392,7 +376,8 @@ export const certificates: ICertificate = {
       ar: "شاركت في ورش عمل تدريبية على مدار شهر، بإجمالي 32 ساعة تدريبية، كجزء من برنامج القدرات التنفيذية - مبادرة من السيناتور علاء مصطفى.",
     },
   },
-  AWCO: {
+  {
+    id: "AWCO",
     title: {
       en: "AWCO Training center (2021)",
       ar: "مركز AWCO للتدريب (2021)",
@@ -402,24 +387,18 @@ export const certificates: ICertificate = {
       ar: "اجتياز تدريب صيفي بنجاح لطلاب كلية العلوم (فرع سيدي بشر).",
     },
   },
-};
+];
 
 interface IReferences {
-  Talaat: {
-    position: ILang;
-    name: ILang;
-    phone: string;
-    email: string;
-  };
-  Khorshed: {
-    position: ILang;
-    name: ILang;
-    phone: string;
-    email: string;
-  };
+  id: string;
+  position: ILang;
+  name: ILang;
+  phone: string;
+  email?: string;
 }
-export const references: IReferences = {
-  Talaat: {
+export const references: IReferences[] = [
+  {
+    id: "Talaat",
     position: {
       en: "Unibusiness' CEO",
       ar: "الرئيس التنفيذي لشركة يوني بيزنس",
@@ -428,42 +407,24 @@ export const references: IReferences = {
     phone: "0111 963 6461",
     email: "ahmdtal3at@gmail.com",
   },
-  Khorshed: {
+  {
+    id: "Khorshed",
     position: { en: "Rawaj' CEO", ar: "الرئيس التنفيذي لشركة رواج" },
     name: { en: "Mr. Omar Khorshed", ar: "أ. عمر خورشد" },
     phone: "0120 070 8084",
-    email: "",
   },
-};
+];
 
 interface IProjects {
-  Spot75: {
-    title: ILang;
-    info: ILang;
-    responsibility: ILang[];
-    link: string;
-  };
-  Senforra: {
-    title: ILang;
-    info: ILang;
-    responsibility: ILang[];
-    link: string;
-  };
-  Qorra: {
-    title: ILang;
-    info: ILang;
-    responsibility: ILang[];
-    link: string;
-  };
-  EgtazPlatfom: {
-    title: ILang;
-    info: ILang;
-    responsibility: ILang[];
-    link: string;
-  };
+  id: string;
+  title: ILang;
+  info: ILang;
+  responsibility: ILang[];
+  link: string;
 }
-export const projects: IProjects = {
-  Spot75: {
+export const projects: IProjects[] = [
+  {
+    id: "Spot75",
     title: { en: "Spot75 store", ar: "متجر Spot75" },
     info: {
       en: "Spot75 is giveaways store that produce custom designed keychains, coasters, mugs, notebooks,.....",
@@ -489,7 +450,8 @@ export const projects: IProjects = {
     ],
     link: "https://www.spot75.com/",
   },
-  Senforra: {
+  {
+    id: "Senforra",
     title: { en: "Senforra", ar: "سِنفُرّة" },
     info: {
       en: "Premium Brazilian-inspired coffee, crafted for true coffee lovers.",
@@ -523,7 +485,8 @@ export const projects: IProjects = {
     ],
     link: "https://www.behance.net/gallery/217496887/Senforra-Every-Sip-a-Story",
   },
-  Qorra: {
+  {
+    id: "Qorra",
     title: { en: "Qorra", ar: "قُرّاءْ" },
     info: {
       en: "A unique initiative fostering literary growth, research, and cultural development through specialized committees and divisions.",
@@ -553,7 +516,8 @@ export const projects: IProjects = {
     ],
     link: "https://qorra.vercel.app/",
   },
-  EgtazPlatfom: {
+  {
+    id: "EgtazPlatfom",
     title: {
       en: "Egtaz – Online Exam Platform",
       ar: "اجتاز - منصة امتحانات أونلاين",
@@ -586,36 +550,30 @@ export const projects: IProjects = {
     ],
     link: "https://youssefturkey.github.io/Egtaz-Platform/",
   },
-};
+];
 
 interface ILangs {
-  ar: {
-    name: ILang;
-    level: ILang;
-  };
-  en: {
-    name: ILang;
-    level: ILang;
-  };
-  it: {
-    name: ILang;
-    level: ILang;
-  };
+  id: string;
+  name: ILang;
+  level: ILang;
 }
-export const languages: ILangs = {
-  ar: {
+export const languages: ILangs[] = [
+  {
+    id: "ar",
     name: { en: "Arabic", ar: "عربي" },
     level: { en: "Native", ar: "اللغة الأم" },
   },
-  en: {
+  {
+    id: "en",
     name: { en: "English", ar: "إنجليزي" },
     level: { en: "B2 (Upper-Intermediate)", ar: "B2 (متوسط متقدم)" },
   },
-  it: {
+  {
+    id: "it",
     name: { en: "Italian", ar: "إيطالية" },
     level: { en: "A1 (Beginner)", ar: "A1 (مبتدئ)" },
   },
-};
+];
 
 interface IPopup {
   image: string;

@@ -3,6 +3,8 @@ import React from "react";
 import { IoClose } from "react-icons/io5";
 // importing framer-motion
 import { motion } from "framer-motion";
+// using Translation
+import { useLanguage } from "@/app/lang/LanguageProvider";
 
 type Props = {
   isOpen: boolean;
@@ -11,6 +13,7 @@ type Props = {
 };
 
 export default function Popup({ isOpen, onClose, children }: Props) {
+  const { language } = useLanguage();
   if (!isOpen) return null;
 
   return (
@@ -24,7 +27,7 @@ export default function Popup({ isOpen, onClose, children }: Props) {
         animate={{ opacity: 1, y: 0 }}
         className="bg-[hsl(var(--secondary))] absolute top-1/2 left-1/2 w-[35%] w-[80%] lg:max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-2xl p-6 shadow-lg"
       >
-        <button onClick={onClose} className="absolute top-3 right-4 text-gray-500 hover:text-black text-2xl">
+        <button onClick={onClose} className={`absolute top-3 ${language === 'en' ? 'right-4' : 'left-4'} text-gray-500 hover:text-black text-2xl`}>
           <IoClose className="text-[hsl(var(--plus))] cursor-pointer" />
         </button>
         {children}

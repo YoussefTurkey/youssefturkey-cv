@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Cairo } from 'next/font/google';
 import "./globals.scss";
 import ClientThemeProvider from "./theme/ClientThemeProvider";
 import ClientLanguageProvider from "./lang/ClientLanguageProvider";
 
-const roboto = Roboto({
-  variable: "--font-roboto",
-  subsets: ["latin"],
+const cairo = Cairo({
+  subsets: ['arabic'],
+  weight: ['400', '700'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} antialiased`}>
+      <body className={`${cairo.className} antialiased`}>
         <ClientThemeProvider>
           <ClientLanguageProvider>{children}</ClientLanguageProvider>
         </ClientThemeProvider>

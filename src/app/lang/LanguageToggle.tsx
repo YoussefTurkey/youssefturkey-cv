@@ -9,7 +9,7 @@ export default function LanguageToggle() {
   return (
     <button
       onClick={() => setLanguage(language === "en" ? "ar" : "en")}
-      className="bg-[hsl(var(--primary))] hover:bg-[hsl(var(--secondary))] hover:text-white rounded-full w-10 h-10 flex justify-center items-center cursor-pointer transition-all"
+      className="bg-[hsl(var(--secondary))] lg:bg-[hsl(var(--primary))] hover:bg-[hsl(var(--secondary))] hover:text-[hsl(var(--foreground))] rounded-full w-10 h-10 flex justify-center items-center cursor-pointer transition-all"
     >
       <GrLanguage />
     </button>

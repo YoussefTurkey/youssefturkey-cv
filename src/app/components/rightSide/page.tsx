@@ -23,21 +23,21 @@ const RightSide = () => {
   const { language } = useLanguage();
 
   return (
-    <section className="container mx-auto w-[100%] lg:w-[975px] px-10 py-5 lg:border-t-none bg-[hsl(var(--secondary))] flex flex-col justify-start items-start lg:rounded-tr-xl lg:rounded-br-xl">
+    <section className={`container mx-auto w-[100%] lg:w-[975px] px-10 py-5 lg:border-t-none bg-[hsl(var(--secondary))] flex flex-col justify-start items-start ${language === 'en' ? 'lg:rounded-tr-xl lg:rounded-br-xl' : 'lg:rounded-tl-xl lg:rounded-bl-xl'}`}>
       {/* --- Experience --- */}
       <div className="mb-10" id="experience">
         <Title>
           {language === "en" ? "Work Experience" : "الخبرات المهنية"}
         </Title>
 
-        {Object.values(experience).map((exp, i) => {
+        {experience.map((exp, i) => {
           return (
             <div className="my-5" key={i}>
               <div className={styles.dots}></div>
-              <div className="ml-8 mt-[-15px]">
+              <div className={`${language === 'en' ? 'ml-8' : 'mr-8'} mt-[-15px]`}>
                 <h4 className="font-bold mb-3 sm:flex">
                   <span className="block">{language === 'en' ? exp.jobTitle.en : exp.jobTitle.ar}</span>{" "}
-                  <span className="ml-2 bg-[#707070] text-[#fff] px-2 py-1 rounded-sm text-[10px] capitalize">
+                  <span className={`${language === 'en' ? 'ml-2' : 'mr-2'} bg-[#707070] text-[#fff] px-2 py-1 rounded-sm text-[10px] capitalize`}>
                     {language === "en" ? exp.time.en : exp.time.ar}
                   </span>
                 </h4>
@@ -60,11 +60,11 @@ const RightSide = () => {
       <div className="mb-10" id="certificates">
         <Title>{language === "en" ? "Certificates" : "شهادات"}</Title>
 
-        {Object.values(certificates).map((cert, i) => {
+        {certificates.map((cert, i) => {
           return (
             <div key={i}>
               <div className="mb-5">
-                <h4 className="font-bold tracking-[3]">
+                <h4 className={`font-bold ${language === 'en' ? 'tracking-[3]' : ''}`}>
                   {language === "en" ? cert.title.en : cert.title.ar}
                 </h4>
                 <p>{language === "en" ? cert.info.en : cert.info.ar}</p>
@@ -81,14 +81,14 @@ const RightSide = () => {
         </Title>
 
         <div className="flex flex-col lg:flex-row justify-between items-start">
-          {Object.values(references).map((ref, i) => {
+          {references.map((ref, i) => {
             return (
               <div key={i}>
                 <div className="mb-5">
                   <span className="text-[14px] text-[#707070]">
-                    {ref.position}
+                    {language === 'en' ? ref.position.en : ref.position.ar}
                   </span>
-                  <h4 className="font-bold tracking-[3] mb-2">
+                  <h4 className={`font-bold ${language === 'en' ? 'tracking-[3]' : ''} mb-2`}>
                     {language === "en" ? ref.name.en : ref.name.ar}
                   </h4>
                   <p>
@@ -96,7 +96,7 @@ const RightSide = () => {
                   </p>
                   {ref.email ? (
                     <p>
-                      {language === "en" ? "EMAIL:" : "البريد الإلكتروني"}{" "}
+                      {language === "en" ? "EMAIL:" : "البريد الإلكتروني:"}{" "}
                       {ref.email}
                     </p>
                   ) : (
@@ -113,7 +113,7 @@ const RightSide = () => {
       <div className="mb-10" id="projects">
         <Title>{language === "en" ? "Latest Project" : "أحدث المشاريع"}</Title>
 
-        {Object.values(projects).map((proj, i) => {
+        {projects.map((proj, i) => {
           return (
             <div key={i}>
               <div className="mb-10 lg:mb-5 flex flex-col lg:flex-row justify-between items-start gap-3 lg:gap-10">
@@ -129,7 +129,7 @@ const RightSide = () => {
                   <h5 className="mt-2">
                     {language === "en" ? "Key responsibility:" : "مسئولياتي:"}
                   </h5>
-                  <ul className="list-disc pl-5">
+                  <ul className={`list-disc ${language === 'en' ? 'pl-5' : 'pr-5'}`}>
                     {proj.responsibility.map((item: ILang, i: number) => (
                       <li key={i} className="py-1">
                         {language === "en" ? item.en : item.ar}
@@ -142,11 +142,11 @@ const RightSide = () => {
                   <Link
                     href={proj.link}
                     target="_blank"
-                    className="transition-all flex items-center"
+                    className={`transition-all flex items-center`}
                   >
                     <FaExternalLinkAlt />{" "}
-                    <span className="pl-2 underline underline-offset-8 decoration-[hsl(var(--plus))]">
-                      {language === "en" ? "See Project" : "أطلع على المشروغ"}
+                    <span className={`px-2 underline underline-offset-8 decoration-[hsl(var(--plus))]`}>
+                      {language === "en" ? "See Project" : "شاهد المشروع"}
                     </span>
                   </Link>
                 </div>
@@ -161,7 +161,7 @@ const RightSide = () => {
         <Title>{language === "en" ? "Languages" : "اللغات"}</Title>
 
         <div className="grid grid-rows-3 grid-cols-1 md:grid-rows-2 md:grid-cols-2 lg:grid-rows-1 lg:grid-cols-3 lg:gap-10 lg:justify-items-center">
-          {Object.values(languages).map((lang, i) => {
+          {languages.map((lang, i) => {
             return (
               <div key={i}>
                 <div className="mb-5">

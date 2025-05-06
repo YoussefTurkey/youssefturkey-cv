@@ -9,20 +9,23 @@ import { VscReferences } from "react-icons/vsc";
 import { LuLayoutList } from "react-icons/lu";
 // importing Components
 import Logo from "../images/Logo";
+// using Translation
+import { useLanguage } from "@/app/lang/LanguageProvider";
 
 const sections = [
-  { id: "bio", icon: <FaUserCircle />, label: "Bio" },
-  { id: "summary", icon: <FaInfoCircle />, label: "Summary" },
-  { id: "education", icon: <FaBookReader />, label: "Education" },
-  { id: "skills", icon: <RiFileList3Fill />, label: "Skills" },
-  { id: "experience", icon: <MdWork />, label: "Experiences" },
-  { id: "certificates", icon: <FaAward />, label: "Certificates" },
-  { id: "reference", icon: <VscReferences />, label: "References" },
-  { id: "projects", icon: <LuLayoutList />, label: "Projects" },
-  { id: "lang", icon: <FaLanguage />, label: "Languages" },
+  { id: "bio", icon: <FaUserCircle />, label: {en: "Bio", ar: 'عني'} },
+  { id: "summary", icon: <FaInfoCircle />, label: {en: "Summary", ar: 'ملخص'} },
+  { id: "education", icon: <FaBookReader />, label: {en: "Education", ar: 'التعليم'} },
+  { id: "skills", icon: <RiFileList3Fill />, label: {en: "Skills", ar: 'مهاراتي'} },
+  { id: "experience", icon: <MdWork />, label: {en: "Experiences", ar: 'خبراتي'} },
+  { id: "certificates", icon: <FaAward />, label: {en: "Certificates", ar: 'شهاداتي'} },
+  { id: "reference", icon: <VscReferences />, label: {en: "References", ar: 'المراجع'} },
+  { id: "projects", icon: <LuLayoutList />, label: {en: "Projects", ar: 'مشاريعي'} },
+  { id: "lang", icon: <FaLanguage />, label: {en: "Languages", ar: 'اللغات'} },
 ];
 
 const MenuBar = () => {
+  const { language } = useLanguage();
   const [menu, setMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const [activeSection, setActiveSection] = useState("");
@@ -88,7 +91,7 @@ const MenuBar = () => {
                 } hover:text-[hsl(var(--plus))] transition-all duration-200`}
               >
                 <span className="p-2">{icon}</span>
-                <span className="text-center text-sm">{label}</span>
+                <span className="text-center text-sm">{language === 'en' ? label.en : label.ar}</span>
               </Link>
             ))}
           </motion.div>
