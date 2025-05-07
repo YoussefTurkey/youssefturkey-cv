@@ -73,7 +73,7 @@ const LeftSide = () => {
   const { language } = useLanguage();
 
   return (
-    <section className={`container mx-auto w-[100%] lg:w-[425px] bg-[hsl(var(--secondary))] lg:bg-[hsl(var(--primary))] px-10 py-5 flex flex-col md:justify-start items-start ${language === 'en' ? 'lg:rounded-tl-xl lg:rounded-bl-xl' : 'lg:rounded-tr-xl lg:rounded-br-xl'} relative`}>
+    <section className={`${styles.lft} container mx-auto w-[100%] md:w-[30%] lg:w-[425px] bg-[hsl(var(--secondary))] md:bg-[hsl(var(--primary))] px-10 py-5 flex flex-col md:justify-start items-start ${language === 'en' ? 'lg:rounded-tl-xl lg:rounded-bl-xl' : 'lg:rounded-tr-xl lg:rounded-br-xl'} relative`}>
       <Popup isOpen={showPopup} onClose={() => setShowPopup(false)}>
         <div className="flex items-center justify-start">
           <img
@@ -134,7 +134,7 @@ const LeftSide = () => {
         </div>
       </Popup>
 
-      <div className="lg:sticky lg:top-5">
+      <div className="md:sticky md:top-5">
         {/* --- Profile --- */}
         <div id="bio">
           <div className="mt-5 flex items-center justify-between">

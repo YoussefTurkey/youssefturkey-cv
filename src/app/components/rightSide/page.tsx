@@ -23,7 +23,7 @@ const RightSide = () => {
   const { language } = useLanguage();
 
   return (
-    <section className={`container mx-auto w-[100%] lg:w-[975px] px-10 py-5 lg:border-t-none bg-[hsl(var(--secondary))] flex flex-col justify-start items-start ${language === 'en' ? 'lg:rounded-tr-xl lg:rounded-br-xl' : 'lg:rounded-tl-xl lg:rounded-bl-xl'}`}>
+    <section className={`container mx-auto w-[100%] md:w-[70%] lg:w-[975px] px-10 py-5 md:border-t-none bg-[hsl(var(--secondary))] flex flex-col justify-start items-start ${language === 'en' ? 'lg:rounded-tr-xl lg:rounded-br-xl' : 'lg:rounded-tl-xl lg:rounded-bl-xl'}`}>
       {/* --- Experience --- */}
       <div className="mb-10" id="experience">
         <Title>

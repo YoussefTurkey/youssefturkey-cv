@@ -61,7 +61,7 @@ const MenuBar = () => {
   }, []);
 
   return (
-    <section className="block lg:hidden w-full container mx-auto">
+    <section className="block md:hidden w-full container mx-auto">
       <div className="flex justify-between items-center px-10 py-3 border-t-2 border-[hsl(var(--secondary))] fixed bottom-0 w-full bg-[hsl(var(--primary))] z-50">
         <Logo />
 

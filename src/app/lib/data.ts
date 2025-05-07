@@ -199,7 +199,7 @@ export const skills: ISkills = {
     ],
   },
   backend: {
-    title: "Backend & CMS",
+    title: "Backend",
     tools: [
       "PHP & Python & C & C++",
       "Strapi & WordPress",
