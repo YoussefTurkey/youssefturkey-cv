@@ -391,7 +391,7 @@ interface IReferences {
   id: string;
   position: ILang;
   name: ILang;
-  phone: string;
+  phone: ILang;
   email?: string;
 }
 export const references: IReferences[] = [
@@ -402,14 +402,14 @@ export const references: IReferences[] = [
       ar: "الرئيس التنفيذي لشركة يوني بيزنس",
     },
     name: { en: "Dr. Ahmed Talaat", ar: "د. أحمد طلعت" },
-    phone: "0111 963 6461",
+    phone: {en: "0111 963 6461", ar: "6461 963 0111"},
     email: "ahmdtal3at@gmail.com",
   },
   {
     id: "Khorshed",
     position: { en: "Rawaj' CEO", ar: "الرئيس التنفيذي لشركة رواج" },
     name: { en: "Mr. Omar Khorshed", ar: "أ. عمر خورشد" },
-    phone: "0120 070 8084",
+    phone: {en: "0120 070 8084", ar: "8084 070 0120"},
   },
 ];
 

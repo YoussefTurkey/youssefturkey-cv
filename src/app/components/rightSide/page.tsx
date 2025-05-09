@@ -92,7 +92,7 @@ const RightSide = () => {
                     {language === "en" ? ref.name.en : ref.name.ar}
                   </h4>
                   <p>
-                    {language === "en" ? "PHONE:" : "تلفونيًا:"} {ref.phone}
+                    {language === "en" ? "PHONE:" : "تلفونيًا:"} {language === 'en' ? ref.phone.en : ref.phone.ar}
                   </p>
                   {ref.email ? (
                     <p>
