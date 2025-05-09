@@ -4,7 +4,7 @@ import { TiLocation } from "react-icons/ti";
 import { FaEnvelope } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { IoCall } from "react-icons/io5";
-import { BsPersonCircle } from "react-icons/bs";
+import { LuLink } from "react-icons/lu";
 import { IconType } from "react-icons"; // importing icon function in ts file
 
 // ---- language ----
@@ -108,7 +108,6 @@ type ISocial = {
     icon: IconType;
     link: string;
     info: string;
-    image: string;
     title: ILang;
   };
 };
@@ -129,10 +128,9 @@ export const social: ISocial = {
     info: "/YouTurkey11",
   },
   qabilah: {
-    icon: BsPersonCircle,
+    icon: LuLink,
     link: "https://qabilah.com/profile/youturkey11/professional-profile",
     info: "/youturkey11",
-    image: "/images/qabilah.webp",
     title: {
       en: "qabilah",
       ar: "قبيلة",
@@ -427,8 +425,8 @@ export const projects: IProjects[] = [
     id: "Spot75",
     title: { en: "Spot75 store", ar: "متجر Spot75" },
     info: {
-      en: "Spot75 is giveaways store that produce custom designed keychains, coasters, mugs, notebooks,.....",
-      ar: "Spot75 هو متجر هدايا يقوم بإنتاج سلاسل مفاتيح، قواعد أكواب، أكواب، دفاتر ملاحظات، وغيرها من المنتجات المصممة حسب الطلب.",
+      en: "is giveaways store that produce custom designed keychains, coasters, mugs, notebooks,.....",
+      ar: "هو متجر هدايا يقوم بإنتاج سلاسل مفاتيح، قواعد أكواب، أكواب، دفاتر ملاحظات، وغيرها من المنتجات المصممة حسب الطلب.",
     },
     responsibility: [
       {

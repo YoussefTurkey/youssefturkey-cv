@@ -16,7 +16,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
   return (
     <div className="w-fit lg:w-full max-w-2xl lg:mx-auto">
       {/* --- Tabs Header --- */}
-      <div className="flex bg-[hsl(var(--third))] rounded-full py-1 px-[15px]">
+      <div className="flex bg-[hsl(var(--primary))] md:bg-[hsl(var(--third))] rounded-full py-1 px-[15px]">
         {tabs.map((tab, index) => (
           <button
             key={index}

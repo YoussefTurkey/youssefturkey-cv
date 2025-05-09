@@ -5,6 +5,7 @@ const LeftSide = dynamic(() => import("../../components/leftSide/page"));
 const RightSide = dynamic(() => import("../../components/rightSide/page"));
 const Footer = dynamic(() => import("../../components/footer/Footer"));
 const MenuBar = dynamic(() => import("../../components/menuBar/MenuBar"));
+const TopScroller = dynamic(() => import("../../components/topScroller/TopScroller"));
 
 function LandingPage() {
   return (
@@ -13,6 +14,7 @@ function LandingPage() {
         <LeftSide />
         <RightSide />
       </div>
+      <TopScroller />
       <MenuBar />
       <Footer />
     </div>

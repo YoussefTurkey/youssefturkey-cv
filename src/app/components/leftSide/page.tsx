@@ -238,26 +238,13 @@ const LeftSide = () => {
               <social.behance.icon />{" "}
               <span className={language === 'en' ? 'pl-2' : 'pr-2'}>{social.behance.info}</span>
             </Link>
+
             <Link
               href={social.qabilah.link ? social.qabilah.link : ""}
               target="_blank"
               className="flex items-center underline underline-offset-8 decoration-[hsl(var(--plus))]"
             >
-              <img
-                src={social.qabilah.image ? social.qabilah.image : ""}
-                width={15}
-                height={15}
-                alt={
-                  language === "en"
-                    ? social.qabilah.title.en
-                      ? social.qabilah.title.en
-                      : ""
-                    : social.qabilah.title.ar
-                    ? social.qabilah.title.ar
-                    : ""
-                }
-                loading="lazy"
-              />
+              <social.qabilah.icon />{" "}
               <span className={language === 'en' ? 'pl-2' : 'pr-2'}>{social.qabilah.info}</span>
             </Link>
           </div>
