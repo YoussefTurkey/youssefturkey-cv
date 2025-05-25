@@ -7,6 +7,7 @@ import { FaUserCircle, FaInfoCircle, FaBookReader, FaAward, FaLanguage } from "r
 import { RiFileList3Fill } from "react-icons/ri";
 import { VscReferences } from "react-icons/vsc";
 import { LuLayoutList } from "react-icons/lu";
+import { FaIdCard } from "react-icons/fa";
 // importing Components
 import Logo from "../images/Logo";
 // using Translation
@@ -17,6 +18,7 @@ const sections = [
   { id: "summary", icon: <FaInfoCircle />, label: {en: "Summary", ar: 'ملخص'} },
   { id: "education", icon: <FaBookReader />, label: {en: "Education", ar: 'التعليم'} },
   { id: "skills", icon: <RiFileList3Fill />, label: {en: "Skills", ar: 'مهاراتي'} },
+  { id: "info", icon: <FaIdCard />, label: {en: "Inforamation", ar: 'بياناتي'} },
   { id: "experience", icon: <MdWork />, label: {en: "Experiences", ar: 'خبراتي'} },
   { id: "certificates", icon: <FaAward />, label: {en: "Certificates", ar: 'شهاداتي'} },
   { id: "reference", icon: <VscReferences />, label: {en: "References", ar: 'المراجع'} },

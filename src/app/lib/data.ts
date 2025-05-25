@@ -573,6 +573,21 @@ export const languages: ILangs[] = [
   },
 ];
 
+interface IPersonalInfo {
+  date: ILang
+  gender: ILang
+  nationality: ILang
+  maritalStatus: ILang
+  militaryStatus: ILang
+} 
+export const personalInfo : IPersonalInfo = {
+  date: {en: '1st May 2000', ar: '1 مايو 2000'},
+  gender: {en: 'Male', ar: 'رجل'},
+  nationality: {en: 'Egyptian', ar: 'مصري'},
+  maritalStatus: {en: 'Engaged', ar: 'خاطب'},
+  militaryStatus: {en: 'Temporarily exempted', ar: 'معفي مؤقتًا'},
+}
+
 interface IPopup {
   image: string;
   name: ILang;

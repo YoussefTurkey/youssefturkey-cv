@@ -6,6 +6,7 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 // import style
 import styles from "./leftSide.module.scss";
+import print from "./print.module.scss";
 // importing Theme Components
 const ThemeToggle = dynamic(() => import("@/app/theme/ThemeToggle"));
 const LanguageToggle = dynamic(() => import("@/app/lang/LanguageToggle"));
@@ -23,6 +24,7 @@ import { contact } from "@/app/lib/data";
 import { social } from "@/app/lib/data";
 import { summary } from "@/app/lib/data";
 import { education } from "@/app/lib/data";
+import { personalInfo } from "@/app/lib/data";
 import { softSkills } from "@/app/lib/data";
 import { popup } from "@/app/lib/data";
 // using Translation
@@ -73,7 +75,15 @@ const LeftSide = () => {
   const { language } = useLanguage();
 
   return (
-    <section className={`${styles.lft} container mx-auto w-[100%] md:w-[30%] lg:w-[425px] bg-[hsl(var(--secondary))] md:bg-[hsl(var(--primary))] px-10 py-5 flex flex-col md:justify-start items-start ${language === 'en' ? 'lg:rounded-tl-xl lg:rounded-bl-xl' : 'lg:rounded-tr-xl lg:rounded-br-xl'} relative`}>
+    <section
+      className={`${print.lft} ${
+        styles.lft
+      } container mx-auto w-[100%] md:w-[30%] lg:w-[425px] bg-[hsl(var(--secondary))] md:bg-[hsl(var(--primary))] px-10 py-5 flex flex-col md:justify-start items-start ${
+        language === "en"
+          ? "lg:rounded-tl-xl lg:rounded-bl-xl"
+          : "lg:rounded-tr-xl lg:rounded-br-xl"
+      } relative`}
+    >
       <Popup isOpen={showPopup} onClose={() => setShowPopup(false)}>
         <div className="flex items-center justify-start">
           <img
@@ -82,7 +92,11 @@ const LeftSide = () => {
             loading="lazy"
             className="w-20 h-20 md:w-30 md:h-30 rounded-full border-2 border-[hsl(var(--plus))]"
           />
-          <h3 className={`py-2 ${language === 'en' ? 'pl-5' : 'pr-5'} text-md md:text-2xl`}>
+          <h3
+            className={`py-2 ${
+              language === "en" ? "pl-5" : "pr-5"
+            } text-md md:text-2xl`}
+          >
             {`Hello, I'm`}
             <br />
             <span className="underline decoration-[hsl(var(--plus))] font-bold text-md md:text-3xl">
@@ -113,7 +127,9 @@ const LeftSide = () => {
                 <Link
                   href={popup.whatsapp}
                   target="_blank"
-                  className={`${language === 'en' ? 'pl-2' : 'pr-2'} text-[hsl(var(--plus))] font-bold text-sm md:text-md`}
+                  className={`${
+                    language === "en" ? "pl-2" : "pr-2"
+                  } text-[hsl(var(--plus))] font-bold text-sm md:text-md`}
                 >
                   {language === "en" ? "Text me" : " راسلني عبر الواتساب"}
                 </Link>
@@ -124,7 +140,9 @@ const LeftSide = () => {
                 <contact.email.icon className="text-[hsl(var(--plus))] text-md md:text-xl" />
                 <Link
                   href={popup.email}
-                  className={`${language === 'en' ? 'pl-2' : 'pr-2'} text-[hsl(var(--plus))] font-bold text-sm md:text-md`}
+                  className={`${
+                    language === "en" ? "pl-2" : "pr-2"
+                  } text-[hsl(var(--plus))] font-bold text-sm md:text-md`}
                 >
                   {language === "en" ? "Email me" : "راسلني عبر البريد"}
                 </Link>
@@ -137,7 +155,7 @@ const LeftSide = () => {
       <div className="md:sticky md:top-5">
         {/* --- Profile --- */}
         <div id="bio">
-          <div className="mt-5 flex items-center justify-between">
+          <div className="flex items-center justify-between">
             <ThemeToggle />
             <LanguageToggle />
           </div>
@@ -160,7 +178,11 @@ const LeftSide = () => {
             </div>
 
             <div className="text-center">
-              <h1 className={`font-bold text-[30px] py-2 ${language === 'en' ? 'tracking-[4]' : ''}`}>
+              <h1
+                className={`font-bold text-[30px] py-2 ${
+                  language === "en" ? "tracking-[4]" : ""
+                }`}
+              >
                 {language === "en" ? persona.fullName.en : persona.fullName.ar}
               </h1>
               <h2 className="font-semibold text-xl py-2">
@@ -177,7 +199,7 @@ const LeftSide = () => {
         <div className="my-10">
           <p className="flex items-center pb-2">
             <contact.address.icon />
-            <span className={language === 'en' ? 'pl-2' : 'pr-2'}>
+            <span className={language === "en" ? "pl-2" : "pr-2"}>
               {language === "en"
                 ? contact.address.info.en
                 : contact.address.info.ar}{" "}
@@ -187,7 +209,9 @@ const LeftSide = () => {
             <contact.email.icon />
             <Link
               href={`mailto:${contact.email.link}`}
-              className={`${language === 'en' ? 'pl-2' : 'pr-2'} underline underline-offset-8 decoration-[hsl(var(--plus))]`}
+              className={`${
+                language === "en" ? "pl-2" : "pr-2"
+              } underline underline-offset-8 decoration-[hsl(var(--plus))]`}
             >
               {contact.email.info}
             </Link>
@@ -197,14 +221,18 @@ const LeftSide = () => {
             <Link
               href={contact.whatsapp.link ? contact.whatsapp.link : ""}
               target="_blank"
-              className={language === 'en' ? 'pl-2' : 'pr-2'}
+              className={language === "en" ? "pl-2" : "pr-2"}
             >
-              {language === 'en' ? contact.whatsapp.info.en : contact.whatsapp.info.ar}
+              {language === "en"
+                ? contact.whatsapp.info.en
+                : contact.whatsapp.info.ar}
             </Link>
           </p>
           <p className="flex items-center">
             <contact.call.icon />
-            <span className={language === 'en' ? 'pl-2' : 'pr-2'}>{language === 'en' ? contact.call.info.en : contact.call.info.ar}</span>
+            <span className={language === "en" ? "pl-2" : "pr-2"}>
+              {language === "en" ? contact.call.info.en : contact.call.info.ar}
+            </span>
           </p>
         </div>
 
@@ -220,7 +248,9 @@ const LeftSide = () => {
               className="flex items-center underline underline-offset-8 decoration-[hsl(var(--plus))]"
             >
               <social.linkedIn.icon />{" "}
-              <span className={language === 'en' ? 'pl-2' : 'pr-2'}>{social.linkedIn.info}</span>
+              <span className={language === "en" ? "pl-2" : "pr-2"}>
+                {social.linkedIn.info}
+              </span>
             </Link>
             <Link
               href={social.github.link ? social.github.link : ""}
@@ -228,7 +258,9 @@ const LeftSide = () => {
               className="flex items-center underline underline-offset-8 decoration-[hsl(var(--plus))]"
             >
               <social.github.icon />{" "}
-              <span className={language === 'en' ? 'pl-2' : 'pr-2'}>{social.github.info}</span>
+              <span className={language === "en" ? "pl-2" : "pr-2"}>
+                {social.github.info}
+              </span>
             </Link>
             <Link
               href={social.behance.link ? social.behance.link : ""}
@@ -236,7 +268,9 @@ const LeftSide = () => {
               className="flex items-center underline underline-offset-8 decoration-[hsl(var(--plus))]"
             >
               <social.behance.icon />{" "}
-              <span className={language === 'en' ? 'pl-2' : 'pr-2'}>{social.behance.info}</span>
+              <span className={language === "en" ? "pl-2" : "pr-2"}>
+                {social.behance.info}
+              </span>
             </Link>
 
             <Link
@@ -245,7 +279,9 @@ const LeftSide = () => {
               className="flex items-center underline underline-offset-8 decoration-[hsl(var(--plus))]"
             >
               <social.qabilah.icon />{" "}
-              <span className={language === 'en' ? 'pl-2' : 'pr-2'}>{social.qabilah.info}</span>
+              <span className={language === "en" ? "pl-2" : "pr-2"}>
+                {social.qabilah.info}
+              </span>
             </Link>
           </div>
         </div>
@@ -263,7 +299,9 @@ const LeftSide = () => {
           <Title>{language === "en" ? "Education" : "التعليم"}</Title>
           <div>
             <div className={styles.dots}></div>
-            <div className={`${language === 'en' ? 'ml-8' : 'mr-8'} mt-[-15px]`}>
+            <div
+              className={`${language === "en" ? "ml-8" : "mr-8"} mt-[-15px]`}
+            >
               <h4 className="font-bold tracking-[3]">
                 {language === "en"
                   ? education.qualified.en
@@ -299,6 +337,53 @@ const LeftSide = () => {
                 {language === "en" ? skill.en : skill.ar}
               </li>
             ))}
+          </ul>
+        </div>
+
+        {/* --- Personal Information --- */}
+        <div className="mb-10" id="info">
+          <Title>
+            {language === "en" ? "Personal Information" : "ملعومات شخصية"}
+          </Title>
+          <ul className="list-disc pl-5">
+            <li className="py-1">
+              <span className="font-bold">
+                {language === "en" ? "Date of Birth: " : "تاريخ الميلاد: "}
+              </span>
+              {language === "en" ? personalInfo.date.en : personalInfo.date.ar}
+            </li>
+            <li className="py-1">
+              <span className="font-bold">
+                {language === "en" ? "Gender: " : "الجنس: "}
+              </span>
+              {language === "en"
+                ? personalInfo.gender.en
+                : personalInfo.gender.ar}
+            </li>
+            <li className="py-1">
+              <span className="font-bold">
+                {language === "en" ? "Nationality: " : "الجنسية: "}
+              </span>
+              {language === "en"
+                ? personalInfo.nationality.en
+                : personalInfo.nationality.ar}
+            </li>
+            <li className="py-1">
+              <span className="font-bold">
+                {language === "en" ? "Marital Status: " : "الحالة الاجتماعية: "}
+              </span>
+              {language === "en"
+                ? personalInfo.maritalStatus.en
+                : personalInfo.maritalStatus.ar}
+            </li>
+            <li className="py-1">
+              <span className="font-bold">
+                {language === "en" ? "Military Status: " : "الوضع العسكري: "}
+              </span>
+              {language === "en"
+                ? personalInfo.militaryStatus.en
+                : personalInfo.militaryStatus.ar}
+            </li>
           </ul>
         </div>
       </div>

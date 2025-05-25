@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
-import { Cairo } from 'next/font/google';
+import { Cairo } from "next/font/google";
 import "./globals.scss";
 import ClientThemeProvider from "./theme/ClientThemeProvider";
 import ClientLanguageProvider from "./lang/ClientLanguageProvider";
 
 const cairo = Cairo({
-  subsets: ['arabic'],
-  weight: ['400', '700'],
-  display: 'swap',
+  subsets: ["arabic"],
+  weight: ["400", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Youssef Turkey CV",
   description: "Youssef is a Frontend-Next.js",
+  robots: "noindex, nofollow",
 };
 
 export default function RootLayout({

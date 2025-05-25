@@ -10,7 +10,7 @@ const TopScroller = dynamic(() => import("../../components/topScroller/TopScroll
 function LandingPage() {
   return (
     <div className="flex flex-col items-center bg-[#181616] lg:bg-transparent">
-      <div className="flex flex-col md:flex-row w-[100%] lg:w-[1400px] lg:my-10 lg:shadow-2xl">
+      <div className="flex flex-col md:flex-row w-[100%] lg:w-[1400px] lg:my-10 lg:shadow-2xl" id="content-to-download">
         <LeftSide />
         <RightSide />
       </div>

@@ -7,7 +7,7 @@
     --primary: 0 3% 94%;
     --secondary: 0 0 98%;
     --third: 210 17% 98%;
-    --plus: 201 100% 36%
+    --plus: 201 100% 36%;
   }
 
   .dark {
@@ -16,7 +16,7 @@
     --primary: 0 4% 9%;
     --secondary: 0 0 13%;
     --third: 0 0 13%;
-    --plus: 145 98% 47%
+    --plus: 145 98% 47%;
   }
 
   body {
@@ -26,7 +26,7 @@
   html[dir="rtl"] {
     text-align: right;
   }
-  
+
   html[dir="ltr"] {
     text-align: left;
   }
