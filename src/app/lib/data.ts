@@ -234,6 +234,41 @@ interface IExperience {
 }
 export const experience: IExperience[] = [
   {
+    id: "Creativa",
+    jobTitle: {
+      en: "Web Design Instructor (Present)",
+      ar: "محاضر تطوير وتصميم المواقع الإلكترونية (حالياً)",
+    },
+    date: { en: "24th of June 2025 | in Creativa Innovation Hub", ar: "24 يونيو 2025 | في مراكز إبداع مصر الرقمية" },
+    info: [
+      {
+        en: "Teaching HTML5, CSS3, and JavaScript from scratch to intermediate level.",
+        ar: "تدريب المتعلمين على أساسيات HTML5 وCSS3 وJavaScript.",
+      },
+      {
+        en: "Introducing students to modern web development practices and tools.",
+        ar: "تبسيط مفاهيم تطوير الويب الحديثة والأدوات المستخدمة.",
+      },
+      {
+        en: "Guiding learners through hands-on projects and practical tasks.",
+        ar: "تنفيذ مشاريع تطبيقية وتاسكات عملية لتعزيز الفهم.",
+      },
+      {
+        en: "Explaining how to work with APIs (fetching, parsing, and integrating external data).",
+        ar: "شرح كيفية التعامل مع واجهات برمجة التطبيقات (APIs) بشكل عملي ومتكامل.",
+      },
+      {
+        en: "Supporting students with real-world examples and best practices.",
+        ar: "تقديم أمثلة من الواقع العملي ونصائح احترافية.",
+      },
+      {
+        en: "Assessing progress and providing constructive feedback.",
+        ar: "تقييم الأداء وتقديم ملاحظات بنّاءة للمشاركين.",
+      },
+    ],
+    time: { en: "Freelance", ar: "عمل حر" },
+  },
+  {
     id: "WPRawaj",
     jobTitle: {
       en: "Full-Stack WordPress Developer (Present)",
