@@ -239,7 +239,7 @@ export const experience: IExperience[] = [
       en: "Web Design Instructor (Present)",
       ar: "محاضر تطوير وتصميم المواقع الإلكترونية (حالياً)",
     },
-    date: { en: "24th of June 2025 | in Creativa Innovation Hub", ar: "24 يونيو 2025 | في مراكز إبداع مصر الرقمية" },
+    date: { en: "24th of June 2025 | in Creativa Innovation Hub (NTI Damnhour)", ar: "24 يونيو 2025 | في مراكز إبداع مصر الرقمية (دمنهور NTI)" },
     info: [
       {
         en: "Teaching HTML5, CSS3, and JavaScript from scratch to intermediate level.",
